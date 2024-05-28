@@ -40,7 +40,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  margin-left: -130px;
+  margin-left: -80px;
   position: relative;
   z-index: 2;
 }
@@ -57,6 +57,37 @@ body {
   position: absolute;
   color: #fff;
   z-index: 3;
+}
+
+.char-cons {
+  position: absolute;
+  width: 60px;
+  top: 120px;
+  left: 500px;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.char-cons span {
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  position: relative;
+}
+
+.char-cons span img {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  top: 27%;
+  left: 21%
 }
 
 .talents {
@@ -110,10 +141,12 @@ body {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   overflow: hidden;
+  color: #fff;
+  width: 210px;
 }
 
 .char-attr li {
-  width: 300px;
+  width: 210px;
   font-size: 17px;
   list-style: none;
   height: 32px;
@@ -295,6 +328,24 @@ body {
   height: calc(100% - 560px);
   background: rgba(255, 255, 255, 0.8);
   position: absolute;
+}
+
+.profile-detail-attr {
+  position: relative;
+  width: 555px;
+  height: 380px;
+  border-radius: 10px;
+}
+
+.canvas-radarChart {
+  padding: 20px 0 0 0;
+  width: 350px;
+  height: 384px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0 10px 10px 0;
 }
 
 .sr-weapon {

@@ -27,6 +27,13 @@ _.forEach(Data.readJSON('data.json', Path), (setData) => {
       setId: setData.id,
       idx
     })
+    artiMeta.addDataItem(setData.id, {
+      ...ds,
+      set: setData.name,
+      setId: setData.id,
+      idx
+    })
+
     idMap[ds.name] = _.keys(ds.ids).join(',')
     artiSet.idxs[idx] = ds.name
   })
