@@ -348,6 +348,14 @@ body {
   border-radius: 0 10px 10px 0;
 }
 
+.canvas-radarChart span {
+  font-size: 12px;
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  color: #ffffff;
+}
+
 .sr-weapon {
   margin: 10px 0;
   border-radius: 10px;
