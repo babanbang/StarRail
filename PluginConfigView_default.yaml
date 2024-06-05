@@ -1,5 +1,5 @@
 - name: StarRail 面板配置
-  file: StarRail/profile.yaml
+  file: StarRail-profile.yaml
   priority: 200
   view:
     -

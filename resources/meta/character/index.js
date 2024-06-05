@@ -1,4 +1,4 @@
-import { Meta } from '#Mys.profile'
+import { Meta, CharCfg } from '#Mys.profile'
 import { Data } from '#Mys.tool'
 import _ from 'lodash'
 import { alias, abbr } from './alias.js'
@@ -26,3 +26,4 @@ _.forEach(wifeCfg, (txt, type) => {
   })
 })
 gsMeta.addMeta({ wifeData })
+CharCfg.initCfg('sr')
