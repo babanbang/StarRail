@@ -50,9 +50,7 @@
   </div>
 </div>
 <div class="title_wt">
-  <div>
-    星琼收入统计
-  </div>
+  <div>星琼收入统计</div>
 </div>
 <div class="chart-box">
   <div class="chart-info">
@@ -62,8 +60,8 @@
       <li>
         <i style="background: {{val.color}}"></i>
         <span class="action"><em>{{val.action_name}}</em></span>
-        <span class="num"><em>{{val.num}}</em></span>
         <span class="percent"><em>{{val.percent}}%</em></span>
+        <span class="num"><em>{{val.num}}</em></span>
       </li>
       {{/each}}
     </ul>
@@ -96,7 +94,7 @@
       style: {
         textAlign: 'center',
         fontFamily: 'tttgbnumber',
-        'fontSize': 28
+        fontSize: 28
       },
       formatter: ({ percent }) => {
         percent = (percent * 100).toFixed(0)
@@ -109,14 +107,14 @@
         content: '总计',
         style: {
           fontFamily: 'tttgbnumber',
-          'fontSize': 32
+          fontSize: 32
         }
       },
       content: {
         offsetY: -10,
         style: {
           fontFamily: 'tttgbnumber',
-          'fontSize': 48
+          fontSize: 48
         }
       }
     },

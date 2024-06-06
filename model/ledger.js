@@ -33,18 +33,21 @@ export default class Ledger extends Base {
     const { year, month } = this.getMonth()
     if (!this.month) return false
 
-    this.mysInfo = await MysInfo.init({ e: this.e, apis: 'ledger', game: 'sr' })
-    if (!this.mysInfo.uid) return false
+    this.mysInfo = await MysInfo.init({ e: this.e, apis: 'ledger', game: this.game })
+    if (!this.mysInfo?.uid) return false
 
     let ledgerInfo
-    if (!this.mysInfo.ckInfo.ck || !MysUtil.checkMonth(year, month)) {
-      const dataPath = Data.gamePath('sr') + 'LedgerData/' + uid + '.json'
+    this.isnowMonth = MysUtil.checkMonth(year, month, 0)
+    if (!this.mysInfo.ckInfo.ck || !this.isnowMonth) {
+      const dataPath = Data.gamePath(this.game) + 'LedgerData/' + this.mysInfo.uid + '.json'
       ledgerInfo = Data.readJSON(dataPath, 'root')?.[year]?.[month]
-      if (!ledgerInfo) {
+      if (!ledgerInfo && !MysUtil.checkMonth(year, month)) {
         this.e.reply(`本地无${year}年${month}月数据！`)
         return false
       }
-    } else {
+    }
+
+    if (!ledgerInfo) {
       const res = await this.mysInfo.getData('ledger', { month: this.month })
       if (res?.retcode !== 0) return false
 
@@ -85,7 +88,7 @@ export default class Ledger extends Base {
   }
 
   getMonth () {
-    const time = this.e.msg.replace(new RegExp(`^${reg}?(星琼|(开拓)?月历)(查询)?`, 'i'), '').replace(/月/g, '').split('年')
+    const time = this.e.msg.replace(new RegExp(`^${reg}?(星琼|(开拓)?月历)(查询)?`, 'i'), '').replace(/月/g, '').trim().split('年')
 
     let month = Number(time[1] || time[0])
     const monthData = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二']
@@ -151,7 +154,6 @@ export default class Ledger extends Base {
     })
 
     return {
-      uid: this.e.uid,
       day,
       icon: 'meta/character/' + _.sample(roleList) + '/imgs/face.png',
       srday: `星期${week[moment().day()]}`,
@@ -164,7 +166,7 @@ export default class Ledger extends Base {
     const { uid, data = '' } = params
     if (!uid) return false
 
-    const dataPath = Data.gamePath('sr') + 'LedgerData/' + uid + '.json'
+    const dataPath = Data.gamePath(this.game) + 'LedgerData/' + uid + '.json'
     const ledgerData = Data.readJSON(dataPath, 'root')
 
     // 获取前三个月

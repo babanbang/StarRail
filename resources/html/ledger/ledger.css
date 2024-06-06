@@ -91,17 +91,14 @@ body {
 }
 
 .day_span {
-  text-indent: 1em;
   font-size: 48px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-left: -30px;
 }
 
 .uid_item:nth-child(2) {
-  /* background-color: #595045; */
   border-radius: 0 0 12px 0px;
   font-size: 40px;
   font-family: MiSans-Medium;
@@ -305,7 +302,7 @@ img {
   display: flex;
   height: 80px;
   width: 330px;
-  margin-left: 100px;
+  margin-left: 50px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -386,7 +383,7 @@ img {
 }
 
 .tooltip li .action {
-  width: 250px;
+  width: 180px;
 }
 
 .tooltip li em {
@@ -394,14 +391,17 @@ img {
   color: #28384d;
   font-style: normal;
   width: 30px;
+  text-align: right;
 }
 
 .tooltip li .num {
-  width: 180px;
+  width: 200px;
+  text-align: right;
 }
 
 .tooltip li .percent {
-  width: 10px;
+  width: 130px;
+  text-align: right;
 }
 
 .logo {
