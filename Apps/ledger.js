@@ -1,6 +1,6 @@
 import { plugin } from '#Karin'
-import { MysUtil } from '#Mys.api'
-import { Data } from '#Mys.tool'
+import { MysUtil } from '#MysTool/mys'
+import { Data } from '#MysTool/utils'
 import Ledger from '../model/ledger.js'
 
 const reg = MysUtil.reg.sr
@@ -20,7 +20,7 @@ export class sr_ledger extends plugin {
     })
   }
   async init () {
-    Data.createDir(Data.gamePath('sr') + 'LedgerData/', true)
+    Data.createDir(Data.gamePath('sr') + 'LedgerData/', { root: true })
   }
 
   /** #sr开拓月历 */

@@ -1,13 +1,20 @@
-import { Meta, CharCfg } from '#Mys.profile'
-import { Data } from '#Mys.tool'
+import { Meta, CharCfg } from '#MysTool/profile'
+import { Data } from '#MysTool/utils'
 import _ from 'lodash'
 import { alias, abbr } from './alias.js'
 import { wifeCfg } from './extra.js'
 
-const data = Data.readJSON('data.json', import.meta.url)
+const data = Data.readJSON('data.json', { Path: import.meta.url })
 const meta = Meta.create('sr', 'char')
+
+const name = []
+_.forEach(data, (ds) => {
+  name.push(ds.name)
+})
+meta.addData([{ id: 'allchars', name }])
 meta.addData(data)
 meta.addAlias(alias)
+
 _.forEach(data, (ds) => {
   abbr[ds.name] = abbr[ds.name] || ds.name
 })

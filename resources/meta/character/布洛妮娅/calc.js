@@ -1,4 +1,4 @@
-import { Format } from '#Mys.profile'
+import { Format } from '#MysTool/profile'
 
 export const details = [{
   title: '普攻伤害',

@@ -1,5 +1,5 @@
-import { Meta } from '#Mys.profile'
-import { Data } from '#Mys.tool'
+import { Meta } from '#MysTool/profile'
+import { Data } from '#MysTool/utils'
 import _ from 'lodash'
 import artiBuffs from './calc.js'
 import { mainAttr, subAttr, attrMap } from './meta.js'
@@ -7,12 +7,12 @@ import { artiSetAbbr, aliasCfg, artiAbbr } from './alias.js'
 import { usefulAttr } from './artis-mark.js'
 const Path = import.meta.url
 
-const metaData = Data.readJSON('meta.json', Path)
+const metaData = Data.readJSON('meta.json', { Path })
 const setMeta = Meta.create('sr', 'artiSet')
 const artiMeta = Meta.create('sr', 'arti')
 
 const idMap = {}
-_.forEach(Data.readJSON('data.json', Path), (setData) => {
+_.forEach(Data.readJSON('data.json', { Path }), (setData) => {
   const artiSet = {
     name: setData.name,
     effect: setData.skill,

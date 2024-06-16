@@ -1,6 +1,6 @@
-import { Base, Cfg, Data } from '#Mys.tool'
-import { MysInfo, MysUtil } from '#Mys.api'
-import { Player } from '#Mys.profile'
+import { Base, Cfg, Data } from '#MysTool/utils'
+import { MysInfo, MysUtil } from '#MysTool/mys'
+import { Player } from '#MysTool/profile'
 import _ from 'lodash'
 
 const buff = Data.readJSON('/components/StarRail/resources/imgs/challenge/buff.json')

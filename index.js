@@ -1,4 +1,5 @@
-import { Cfg, getDir } from '#Mys.tool'
+import { Cfg, getDir } from '#MysTool/utils'
+import './model/mys/ApiMap.js'
 
 const dir = getDir(import.meta.url)
 Cfg.initCfg('/components', dir.name + '/', 'sr')

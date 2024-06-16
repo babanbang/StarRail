@@ -1,20 +1,22 @@
-import { Meta } from '#Mys.profile'
-import { Data } from '#Mys.tool'
+import { Meta } from '#MysTool/profile'
+import { Data } from '#MysTool/utils'
 import _ from 'lodash'
 import { abbr, aliasCfg } from './alias.js'
 const Path = import.meta.url
 
 const types = '存护,丰饶,毁灭,同谐,虚无,巡猎,智识'.split(',')
-
+const data = Data.readJSON('data.json', { Path })
 const meta = Meta.create('sr', 'weapon')
-meta.addData(Data.readJSON('data.json', Path))
+
+meta.addData([{ id: 'allweapons', data }])
+meta.addData(data)
 meta.addAlias(aliasCfg)
 meta.addAbbr(abbr)
 
 const weaponBuffs = {}
 let loadBuffs = async function () {
   for (const type of types) {
-    let calc = (await Data.importDefault(`${type}/calc.js`, Path)).module
+    let calc = (await Data.importDefault(`${type}/calc.js`, { Path })).module
     if (_.isFunction(calc)) {
       calc = calc((idx, key) => {
         return {

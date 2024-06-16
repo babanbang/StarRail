@@ -1,6 +1,6 @@
-import { Base, common, Data, PluginName } from '#Mys.tool'
-import { MysInfo, MysApi } from '#Mys.api'
-import { Material, Weapon, Character } from '#Mys.profile'
+import { MysInfo } from '#MysTool/mys'
+import { Character, Material, Weapon } from '#MysTool/profile'
+import { Base, common, Data, PluginName } from '#MysTool/utils'
 import _ from 'lodash'
 
 export default class Calculator extends Base {
@@ -23,17 +23,17 @@ export default class Calculator extends Base {
     this.e.reply(common.makeForward(this.tips))
   }
 
-  async character_count () {
+  async character_count (calculator) {
     this.mysInfo = await MysInfo.init({ e: this.e, apis: 'compute', game: this.game, option: { log: false } })
     if (!this.mysInfo?.ckInfo?.ck) return false
 
     /** 
      * @type {{
-     * role:import('#Mys.profile').Character[]
-     * weapon:import('#Mys.profile').Weapon[]
+     * role:import('#MysTool/profile').Character[]
+     * weapon:import('#MysTool/profile').Weapon[]
      * }}
      */
-    const { roles, weapons, set } = this.e.calculator
+    const { roles, weapons, set } = calculator
     if (set?.length > 2) {
       this.e.reply('参数错误，请按示例输入！')
       this.help()
