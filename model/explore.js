@@ -23,12 +23,19 @@ export default class Explore extends Base {
     const [index, rogue, challenge] = res
 
     const exploreInfo = { version: this.lable.version }
+    const player = new Player(this.e.MysUid, this.game)
+    player.setBasicData({
+      ...rogue.data.role,
+      face: index.cur_head_icon_url,
+      card: index.data.phone_background_image_url
+    }, true)
+
     exploreInfo.role = {
       ...rogue.data.role,
-      region: MysUtil.ServerToRegion(rogue.data.role.server)
+      region: MysUtil.ServerToRegion(rogue.data.role.server),
+      face: player.face,
+      card: player.card
     }
-    const player = new Player(this.e.MysUid, this.game)
-    player.setBasicData({ ...rogue.data.role, face: index.cur_head_icon_url }, true)
 
     exploreInfo.avatars = index.data.avatar_list.filter(i => i.is_chosen)
     if (exploreInfo.avatars.length < 8) {
@@ -79,9 +86,6 @@ export default class Explore extends Base {
       exploreInfo.challenge.round_num = floor.round_num
       exploreInfo.challenge.max_floor_star = floor.star_num
     }
-
-    exploreInfo.background_url = index.data.phone_background_image_url
-    exploreInfo.game_head_icon = index.data.cur_head_icon_url
 
     return await this.renderImg({ ...exploreInfo, uid: this.e.MysUid })
   }

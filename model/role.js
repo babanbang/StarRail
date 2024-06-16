@@ -19,7 +19,11 @@ export default class Role extends Base {
       const ret = await MysInfo.get(this.e, [['index'], ['rogue', { detail: false }]])
       if (!_.every(ret, v => v?.retcode !== 0)) {
         const [index, rogue] = ret
-        player.setBasicData({ ...rogue.data.role, face: index.data.cur_head_icon_url }, true)
+        player.setBasicData({
+          ...rogue.data.role,
+          face: index.data.cur_head_icon_url,
+          PhoneTheme: index.data.phone_background_image_url
+        }, true)
       }
     }
     player.updateMysSRPlayer(res.data)
@@ -30,7 +34,8 @@ export default class Role extends Base {
       role: {
         name: player.name,
         level: player.level,
-        face: player.face
+        face: player.face,
+        card: player.card,
       },
       uid: this.e.MysUid,
       version: this.lable.version
