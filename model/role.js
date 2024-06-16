@@ -7,14 +7,14 @@ export default class Role extends Base {
   constructor (e) {
     super(e, 'sr')
     this.model = 'role/rolelist'
-    this.lable = Cfg.getdefSet('lable', 'sr')
+    this.lable = Cfg.getdefSet('lable', this.game)
   }
 
   async roleList () {
     const res = await MysInfo.get(this.e, 'character')
     if (res?.retcode !== 0) return false
 
-    const player = new Player(this.e.MysUid, 'sr')
+    const player = new Player(this.e.MysUid, this.game)
     if (!player.name || !player.level) {
       const ret = await MysInfo.get(this.e, [['index'], ['rogue', { detail: false }]])
       if (!_.every(ret, v => v?.retcode !== 0)) {

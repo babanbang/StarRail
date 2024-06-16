@@ -63,7 +63,7 @@ export default class Ledger extends Base {
       this.e.reply('任务正在执行中，请稍后再试')
       return false
     }
-    const { cks, uids } = await MysInfo.getBingUser('gs', 'ck')
+    const { cks, uids } = await MysInfo.getBingUser(this.game, 'ck')
     let finishTime = moment().add(uids.length * 1.5, 's').format('MM-DD HH:mm:ss')
     const startMsg = `开始任务：保存星琼数据，完成前请勿重复执行\n开拓月历ck：${uids.length}个\n预计需要：${this.countTime(uids.length)}\n完成时间：${finishTime}`
 

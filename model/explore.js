@@ -8,7 +8,7 @@ export default class Explore extends Base {
   constructor (e) {
     super(e, 'sr')
     this.model = 'explore/explore'
-    this.lable = Cfg.getdefSet('lable', 'sr')
+    this.lable = Cfg.getdefSet('lable', this.game)
   }
 
   async get () {
@@ -27,7 +27,7 @@ export default class Explore extends Base {
       ...rogue.data.role,
       region: MysUtil.ServerToRegion(rogue.data.role.server)
     }
-    const player = new Player(this.e.MysUid, 'gs')
+    const player = new Player(this.e.MysUid, this.game)
     player.setBasicData({ ...rogue.data.role, face: index.cur_head_icon_url }, true)
 
     exploreInfo.avatars = index.data.avatar_list.filter(i => i.is_chosen)
