@@ -140,18 +140,10 @@ body {
 }
 
 .avatars {
-  display: -webkit-flex;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-justify-content: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  width: 100%;
+  overflow: hidden;
   background-color: rgba(10, 10, 10, 0.782);
+  padding: 10px;
   font-size: 10px;
 }
 
@@ -175,6 +167,9 @@ body {
   background-color: rgba(243, 229, 201, 0.97);
   border-radius: 10px 10px 10px 3px;
   overflow: hidden;
+  float: left;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .avatar {
@@ -347,6 +342,12 @@ body {
   position: relative;
   color: rgb(255, 255, 255);
   background-color: rgba(10, 9, 9, 0.558);
+}
+
+.no-weapon {
+  border-radius: 0;
+  height: 30px;
+  background-color: rgb(9, 12, 25);
 }
 
 .weapon img {

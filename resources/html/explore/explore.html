@@ -33,7 +33,7 @@
         <div class="explore">
           {{each explores.other v}}
           <div class="item2">
-            <p style="font-size: '{{if v.lable==='逐光捡金' }}9px{{/if}}'">
+            <p style="font-size: {{if v.lable==='逐光捡金' }}9px{{/if}}">
               {{v.num}}{{if v.extra}}<span>/{{v.extra}}</span>{{/if}}</p>
             <p>{{v.lable}}</p>
           </div>

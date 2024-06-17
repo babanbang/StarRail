@@ -98,11 +98,8 @@
               {{else}}
               <li></li>
               {{/if}}
-              {{if useBrowser==='-wk'&&(idx+1)%3===0&&idx<ad.allAttr.length-1}} </ul>
-                <ul class="detail attr arti-attr">
-                  {{/if}}
-                  {{/each}}
-                </ul>
+              {{/each}}
+            </ul>
           </div>
           <div class="dmg-desc arti-notice">
             评分为<strong>喵喵版规则</strong>，仅供参考与娱乐。
@@ -114,10 +111,10 @@
         {{set artisnum=0}}
         {{each ad.artis ds idx}}
         {{if ds && ds.name && ds.main && ds.main.key && ds.main.key!="undefined"}}
-        {{if useBrowser==='-wk'&&(artisnum=artisnum+1)===4}}
+        <!-- {{if useBrowser==='-wk'&&(artisnum=artisnum+1)===4}}
       </div>
       <div class="artis" style="margin-top: 0px;">
-        {{/if}}
+        {{/if}} -->
         <div class="item arti arti-class-{{ds.markClass}}">
           <div class="arti-icon">
             <div class="img" style="background-image: url({{pluResPath}}{{ds.img}})"></div>
@@ -391,7 +388,7 @@
           let value = actualValues[index]
 
           ctx.fillText(label, x, y)
-          if (['暴击率', '暴击伤害', '伤害加成','击破特攻', '效果命中', '效果抵抗', '治疗加成'].includes(label)) {
+          if (['暴击率', '暴击伤害', '伤害加成', '击破特攻', '效果命中', '效果抵抗', '治疗加成'].includes(label)) {
             value += '%'
           }
           ctx.fillText(value, x, y + 16)

@@ -73,7 +73,7 @@ export default class Explore extends Base {
       time: this.getTime(challenge.data.end_time),
       name: (challenge.data.groups.find(v => v.schedule_id === challenge.data.schedule_id)).name_mi18n,
       ...challenge.data,
-      buff: buff[challenge.data.schedule_id].replace(/\${([^}]*)}/g, '<span style="color: chocolate;">$1</span>')
+      buff: buff[challenge.data.schedule_id]?.replace?.(/\${([^}]*)}/g, '<span style="color: chocolate;">$1</span>') || ''
     }
     if (challenge.data.has_data) {
       const floor = challenge.data.all_floor_detail.find(v => v.name === challenge.data.max_floor)

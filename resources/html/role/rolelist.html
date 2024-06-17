@@ -13,7 +13,7 @@
 <body>
   {{set talentlist=['a','e','q','t']}}
   <div class="container">
-    <div class="role" style="background-image: url('{{pluResPath}}imgs/PhoneTheme/{{role.card||||221000}}.png');">
+    <div class="role" style="background-image: url('{{pluResPath}}imgs/PhoneTheme/{{role.card||221000}}.png');">
       <div class="logo"></div>
       <div class="top">
         <div class="role-image"
@@ -27,7 +27,7 @@
       <div class="avatars">
         {{each avatars avatar idx}}
         {{set hasTalent = avatar.talent?.a&&avatar.talent?.e&&avatar.talent?.q&&avatar.talent?.t}}
-        <div class="avatar-box" style="height: {{avatar.weapon?.promote>0? '':'170px'}};">
+        <div class="avatar-box">
           <div class="avatar-top">
             <div class="left">
               <div class="avatar bg{{avatar.star}}">
@@ -120,12 +120,10 @@
               {{/each}}
             </div>
           </div>
+          {{else}}
+          <div class="no-weapon"></div>
           {{/if}}
         </div>
-        {{if useBrowser==='-wk'&&(idx+1)%3===0}}
-      </div>
-      <div class="avatars">
-        {{/if}}
         {{/each}}
       </div>
       <div class="plugin">{{PluginName}}</div>
