@@ -361,7 +361,7 @@ body {
 .sr-weapon {
   margin: 10px 0;
   border-radius: 10px;
-  background: url("../../../../../resources/common/cont/card-bg.png") top left repeat-x;
+  background: url("../../../../../../resources/common/cont/card-bg.png") top left repeat-x;
   background-size: auto 150%;
   position: relative;
   -webkit-box-shadow: 0 0 1px 0 #ccc, 2px 2px 4px 0 rgba(50, 50, 50, 0.8);
@@ -495,7 +495,7 @@ body {
 .artis .item {
   width: 180px;
   border-radius: 10px;
-  background: url("../../../../../resources/common/cont/card-bg.png") top left repeat-x;
+  background: url("../../../../../../resources/common/cont/card-bg.png") top left repeat-x;
   background-size: auto 100%;
   margin: 4px;
   position: relative;
@@ -660,7 +660,7 @@ body {
 
 .artis ul.detail li.great span.title i.up-num,
 .arti-info ul.detail li.great span.title i.up-num {
-  background-image: url("../../../../../resources/common/cont/up-num-icon2.png");
+  background-image: url("../../../../../../resources/common/cont/up-num-icon2.png");
   background-size: auto 500%;
 }
 
@@ -671,7 +671,7 @@ body {
 
 .artis ul.detail li.nouse span i.up-num,
 .arti-info ul.detail li.nouse span i.up-num {
-  background-image: url("../../../../../resources/common/cont/up-num-icon0.png");
+  background-image: url("../../../../../../resources/common/cont/up-num-icon0.png");
   background-size: auto 500%;
 }
 

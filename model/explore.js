@@ -3,7 +3,7 @@ import { MysInfo, MysUtil } from '#MysTool/mys'
 import { Player } from '#MysTool/profile'
 import _ from 'lodash'
 
-const buff = Data.readJSON('/components/StarRail/resources/imgs/challenge/buff.json')
+const buff = Data.readJSON('/lib/components/StarRail/resources/imgs/challenge/buff.json')
 export default class Explore extends Base {
   constructor (e) {
     super(e, 'sr')

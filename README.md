@@ -14,11 +14,11 @@ karin-plugin-MysTool目录执行以下命令克隆仓库到本地
 >根据你的网络选择使用GitHub或Gitee
 1. 使用GitHub
 ```bash
-git clone --depth=1 https://github.com/babanbang/StarRail.git ./components/StarRail
+git clone --depth=1 https://github.com/babanbang/StarRail.git ./lib/components/StarRail
 ```
 2. 使用Gitee
 ```bash
-git clone --depth=1 https://gitee.com/bbaban/StarRail.git ./components/StarRail
+git clone --depth=1 https://gitee.com/bbaban/StarRail.git ./lib/components/StarRail
 ```
 
 #### 如何使用
