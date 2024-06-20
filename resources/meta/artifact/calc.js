@@ -149,9 +149,7 @@ export default {
   停转的萨尔索图: {
     2: [attr('cpct', 8), {
       title: '终结技与追加攻击造成的伤害提高15%',
-      check: ({ attr, calc }) => {
-        return calc(attr.cpct) > 50
-      },
+      check: ({ attr, calc }) => calc(attr.cpct) > 50,
       data: {
         qDmg: 15,
         tDmg: 15
@@ -270,5 +268,49 @@ export default {
         cpct: 12
       }
     }]
+  },
+  劫火莲灯铸炼宫: {
+    2: [attr('speedPct', 6), {
+      title: '当装备者击中拥有火属性弱点的敌方目标时，击破特攻提高[stance]%',
+      data: {
+        stance: 40
+      }
+    }]
+  },
+  奔狼的都蓝王朝: {
+    2: [attr('speedPct', 6), {
+      title: '叠满5层【功勋】时，追加攻击造成伤害提高25%、暴击伤害提高25%',
+      data: {
+        tDmg: 25,
+        cdmg: 25
+      }
+    }]
+  },
+  风举云飞的勇烈: {
+    2: attr('atkPct', 12),
+    4: {
+      title: '暴击率提高[cpct]%。施放追加攻击时，终结技造成的伤害提高[qDmg]%',
+      data: {
+        cpct: 6,
+        qDmg: 36
+      }
+    }
+  },
+  荡除蠹灾的铁骑: {
+    2: attr('stance', 16),
+    4: {
+      title: '[_title]',
+      check: ({ attr }) => attr.stance >= 150,
+      data: {
+        _title: ({ attr }) => {
+          let title = ['击破特攻大于等于150%时，造成的击破伤害无视10%防御力']
+          if (attr.stance >= 250) {
+            title.push('击破特攻大于等于250%时，造成的超击破伤害额外无视25%防御力。')
+          }
+          return title.join('。')
+        },
+        ignore: ({ attr }) => attr.stance >= 250 ? 35 : 10
+      }
+    }
   }
 }
