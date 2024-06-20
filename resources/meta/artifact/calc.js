@@ -305,11 +305,12 @@ export default {
         _title: ({ attr }) => {
           let title = ['击破特攻大于等于150%时，造成的击破伤害无视10%防御力']
           if (attr.stance >= 250) {
-            title.push('击破特攻大于等于250%时，造成的超击破伤害额外无视25%防御力。')
+            title.push('击破特攻大于等于250%时，造成的超击破伤害额外无视15%防御力。')
           }
           return title.join('。')
         },
-        ignore: ({ attr }) => attr.stance >= 250 ? 35 : 10
+        breakIgnore: 10,
+        superBreakIgnore: ({ attr }) => attr.stance >= 250 ? 15 : 0
       }
     }
   }
