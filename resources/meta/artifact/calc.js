@@ -271,20 +271,20 @@ export default {
   },
   劫火莲灯铸炼宫: {
     2: [attr('speedPct', 6), {
-      title: '当装备者击中拥有火属性弱点的敌方目标时，击破特攻提高[stance]%',
+      title: '击中火弱点的敌方时，击破特攻提高[stance]%',
       data: {
         stance: 40
       }
     }]
   },
   奔狼的都蓝王朝: {
-    2: [attr('speedPct', 6), {
-      title: '叠满5层【功勋】时，追加攻击造成伤害提高25%、暴击伤害提高25%',
+    2: {
+      title: '叠满5层【功勋】时，追加攻击造成伤害提高[tDmg]%、暴击伤害提高[cdmg]%',
       data: {
         tDmg: 25,
         cdmg: 25
       }
-    }]
+    }
   },
   风举云飞的勇烈: {
     2: attr('atkPct', 12),
@@ -298,20 +298,18 @@ export default {
   },
   荡除蠹灾的铁骑: {
     2: attr('stance', 16),
-    4: {
-      title: '[_title]',
+    4: [{
       check: ({ attr }) => attr.stance >= 150,
+      title: '造成的击破伤害无视敌方[breakIgnore]%防御',
       data: {
-        _title: ({ attr }) => {
-          let title = ['击破特攻大于等于150%时，造成的击破伤害无视10%防御力']
-          if (attr.stance >= 250) {
-            title.push('击破特攻大于等于250%时，造成的超击破伤害额外无视15%防御力。')
-          }
-          return title.join('。')
-        },
-        breakIgnore: 10,
-        superBreakIgnore: ({ attr }) => attr.stance >= 250 ? 15 : 0
+        breakIgnore: 10
       }
-    }
+    }, {
+      check: ({ attr }) => attr.stance >= 250,
+      title: '造成的超击破伤害额外无视敌方[superBreakIgnore]%防御',
+      data: {
+        superBreakIgnore: 15
+      }
+    }]
   }
 }
