@@ -20,7 +20,7 @@ export default class Calculator extends Base {
   mysInfo
 
   help () {
-    this.e.reply(common.makeForward(this.tips))
+    this.e.replyForward(common.makeForward(this.tips))
   }
 
   async character_count (calculator) {

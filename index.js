@@ -9,6 +9,7 @@ for (const type of ['artifact', 'character', 'weapon']) {
 }
 
 export * from './Apps/explore.js'
+export * from './Apps/gachaLog.js'
 export * from './Apps/ledger.js'
 export * from './Apps/profile.js'
 export * from './Apps/role.js'
