@@ -1,0 +1,30 @@
+{{extend defaultLayout}}
+
+{{block 'css'}}
+<link rel="stylesheet" href="{{pluResPath}}html/rogue/rogue_nous.css">
+<link rel="stylesheet" href="{{pluResPath}}html/rogue/locust_nous.css">
+{{/block}}
+
+{{block 'main'}}
+<div class="headerimg">
+  <div class="header">
+    <div class="header-title">
+      {{detail.records[0].name_mi18n}}
+    </div>
+    <div class="top">
+      <div class="role-image"
+        style="background-image: url('{{role.face||`${pluResPath}meta/character/common/imgs/face.png`}}')"></div>
+      <div class="role-text">
+        <p>{{role.name}}<span>Lv.{{role.level}}</span></p>
+        <p>UID: {{uid}}</p>
+      </div>
+    </div>
+  </div>
+  {{each basic value key}}
+  <span class="{{key}}">{{value}}</span>
+  {{/each}}
+</div>
+
+{{ include `${pluResPath}html/rogue/locust_nous.html`, {detail,pluResPath,roman,isnous:true,useBrowser,res_Path} }}
+
+{{/block}}

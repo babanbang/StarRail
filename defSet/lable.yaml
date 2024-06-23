@@ -1,5 +1,5 @@
 # 版本
-version: 2.2
+version: 2.3
 # 角色数
 avatar: 48
 # 成就
@@ -8,9 +8,20 @@ achievement: 804
 chest: 764
 # 梦境护照贴纸
 dream_paster: 210
+
 # 模拟宇宙技能树激活
 unlocked_skill: 42
 # 模拟宇宙解锁奇物
 unlocked_miracle: 60
 # 模拟宇宙解锁祝福
 unlocked_buff: 232
+
+# 差分宇宙已解锁节点
+skill_tree: -
+
+# 寰宇蝗灾行者之道
+locust_narrow: -
+# 寰宇蝗灾已解锁奇物
+locust_miracle: -
+# 寰宇蝗灾已解锁事件
+locust_event: -

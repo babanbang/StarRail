@@ -38,6 +38,7 @@ export class sr_GachaLog extends plugin {
     Data.createDir(Data.gamePath('sr') + 'GachaData/', { root: true })
   }
 
+  /** 抽卡记录 */
   async getLog () {
     const img = await new GachaLog(this.e).getLog()
     if (!img) return
@@ -45,6 +46,7 @@ export class sr_GachaLog extends plugin {
     this.reply(img)
   }
 
+  /** 更新抽卡记录 */
   async upLog ({ params }) {
     const msg = await new GachaLog(this.e).upLog(params)
     if (!msg) return
@@ -52,6 +54,7 @@ export class sr_GachaLog extends plugin {
     this.replyForward(msg)
   }
 
+  /** 导出抽卡记录 */
   async exportLog () {
     if (this.e.isGroup && !this.e.msg.includes("强制")) {
       return this.reply("建议私聊导出，若你确认要在此导出，请发送【#sr强制导出抽卡记录】", { at: true })

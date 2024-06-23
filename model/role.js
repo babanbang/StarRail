@@ -16,7 +16,7 @@ export default class Role extends Base {
 
     const player = new Player(this.e.MysUid, this.game)
     if (!player.name || !player.level) {
-      const ret = await MysInfo.get(this.e, [['index'], ['rogue', { detail: false }]])
+      const ret = await MysInfo.get(this.e, [['index'], ['rogue']])
       if (!_.every(ret, v => v?.retcode !== 0)) {
         const [index, rogue] = ret
         player.setBasicData({
@@ -37,7 +37,6 @@ export default class Role extends Base {
         face: player.face,
         card: player.card,
       },
-      uid: this.e.MysUid,
       version: this.lable.version
     }, { Scale: true })
   }

@@ -1,0 +1,69 @@
+.headerimg {
+  background-image: url('../../imgs/rogue/nous_bg.png');
+  background-repeat: no-repeat;
+  height: 690px;
+  border-radius: 25px;
+  background-size: cover;
+  color: rgba(245, 245, 245);
+  position: relative;
+}
+
+.record {
+  background: url('../../imgs/rogue/nous.png')top left no-repeat #151a2c;
+  border-radius: 20px;
+  margin-top: 15px;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.cur_progress {
+  font-size: 32px;
+  position: absolute;
+  top: 180px;
+  left: 70px;
+}
+
+.max_progress {
+  font-size: 12px;
+  color: #969899;
+  position: absolute;
+  top: 216px;
+  left: 102px;
+}
+
+.cur_rolling {
+  font-size: 36px;
+  position: absolute;
+  top: 275px;
+  left: 465px;
+}
+
+.max_rolling {
+  font-size: 12px;
+  color: #969899;
+  position: absolute;
+  top: 315px;
+  left: 505px;
+}
+
+.unlock_miracle {
+  font-size: 22px;
+  position: absolute;
+  top: 380px;
+  left: 240px;
+}
+
+.active_nerve {
+  font-size: 22px;
+  position: absolute;
+  top: 463px;
+  left: 442px;
+
+}
+
+.unlock_event {
+  font-size: 22px;
+  position: absolute;
+  top: 597px;
+  left: 285px;
+}

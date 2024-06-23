@@ -1,0 +1,64 @@
+.radar-icon-item {
+  margin-top: -40px;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+}
+
+.headerimg {
+  background-image: url('../../imgs/rogue/bg.png');
+  background-repeat: no-repeat;
+  height: 690px;
+  border-radius: 25px;
+}
+
+.record {
+  background: url('../../imgs/rogue/bg_fanyu.png')top left no-repeat #151a2c;
+  border-radius: 20px;
+  margin-top: 15px;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.radar-block {
+  margin-top: -15px;
+}
+
+.radar-bg {
+  width: 100%;
+}
+
+.radar-num {
+  background: #0b0c11;
+  border-radius: 8px;
+  border: #c7c7c7 solid 1px;
+  width: 16px;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.radar-icon {
+  font-size: 12px;
+  color: #b2a8e9;
+  width: 30px;
+  height: 30px;
+  background: #0b0c11;
+  border-radius: 15px;
+  border: #c7c7c7 solid 1px;
+  position: absolute;
+}
+
+.radar-icon img {
+  margin-left: 3px;
+  margin-top: 3px;
+  width: 22px;
+}
+
+.radar-text1 {
+  font-size: 16px;
+  color: #c9cacf;
+}

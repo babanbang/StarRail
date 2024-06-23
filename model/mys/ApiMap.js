@@ -31,7 +31,22 @@ ApiTool.setApiMap('sr', function (data) {
     /** 模拟宇宙 */
     rogue: {
       url: `${MysTool.record_api}game_record/app/hkrpg/api/rogue`,
-      query: `need_detail=${data.detail}&role_id=${this.uid}&schedule_type=3&server=${this.server}`
+      query: `need_detail=true&role_id=${this.uid}&schedule_type=3&server=${this.server}`
+    },
+    /** 差分宇宙 */
+    rogue_tourn: {
+      url: `${MysTool.record_api}game_record/app/hkrpg/api/rogue_tourn`,
+      query: `need_detail=true&role_id=${this.uid}&schedule_type=3&server=${this.server}`
+    },
+    /** 黄金与机械 */
+    rogue_nous: {
+      url: `${MysTool.record_api}game_record/app/hkrpg/api/rogue_nous`,
+      query: `need_detail=true&role_id=${this.uid}&schedule_type=3&server=${this.server}`
+    },
+    /** 寰宇蝗灾 */
+    rogue_locust: {
+      url: `${MysTool.record_api}game_record/app/hkrpg/api/rogue_locust`,
+      query: `need_detail=true&role_id=${this.uid}&schedule_type=3&server=${this.server}`
     },
     /** 忘却之庭 */
     challenge: {
@@ -77,7 +92,22 @@ ApiTool.setApiMap('sr', function (data) {
     /** 模拟宇宙 */
     rogue: {
       url: `${MysTool.os_bbs_api}game_record/hkrpg/api/rogue`,
-      query: `need_detail=${data.detail}&role_id=${this.uid}&schedule_type=3&server=${this.server}`
+      query: `need_detail=true&role_id=${this.uid}&schedule_type=3&server=${this.server}`
+    },
+    /** 差分宇宙 */
+    rogue_tourn: {
+      url: `${MysTool.os_bbs_api}game_record/hkrpg/api/rogue_tourn`,
+      query: `need_detail=true&role_id=${this.uid}&server=${this.server}`
+    },
+    /** 黄金与机械 */
+    rogue_nous: {
+      url: `${MysTool.os_bbs_api}game_record/hkrpg/api/rogue_nous`,
+      query: `need_detail=true&role_id=${this.uid}&server=${this.server}`
+    },
+    /** 寰宇蝗灾 */
+    rogue_locust: {
+      url: `${MysTool.os_bbs_api}game_record/hkrpg/api/rogue_locust`,
+      query: `need_detail=true&role_id=${this.uid}&server=${this.server}`
     },
     /** 忘却之庭 */
     challenge: {

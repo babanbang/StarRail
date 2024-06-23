@@ -23,7 +23,7 @@ export class sr_ledger extends plugin {
     Data.createDir(Data.gamePath('sr') + 'LedgerData/', { root: true })
   }
 
-  /** #sr开拓月历 */
+  /** 开拓月历 */
   async ledger () {
     const img = await new Ledger(this.e).get()
     if (!img) return

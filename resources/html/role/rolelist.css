@@ -1,30 +1,8 @@
-@font-face {
-  font-family: "tttgbnumber";
-  src: url("../../../../../../resources/fonts/tttgbnumber.woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 body {
   font-size: 14px;
   color: #fff;
   font-family: PingFangSC-Medium, PingFang SC, sans-serif;
   width: 880px;
-  -webkit-transform: scale(2);
-  transform: scale(2);
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
 }
 
 .container {
@@ -209,6 +187,35 @@ body {
   border-radius: 10px 10px 15px 10px;
 }
 
+.fire {
+  background-image: url('../../imgs/element/fire.png');
+}
+
+.ice {
+  background-image: url('../../imgs/element/ice.png');
+}
+
+.imaginary {
+  background-image: url('../../imgs/element/imaginary.png');
+}
+
+.elec,
+.lightning {
+  background-image: url('../../imgs/element/elec.png');
+}
+
+.physical {
+  background-image: url('../../imgs/element/phy.png');
+}
+
+.quantum {
+  background-image: url('../../imgs/element/quantum.png');
+}
+
+.wind {
+  background-image: url('../../imgs/element/wind.png');
+}
+
 .avatar-talent {
   display: -webkit-box;
   display: -webkit-flex;
@@ -322,11 +329,22 @@ body {
   left: 5px;
   width: 18px;
   height: 18px;
-  background: rgb(0 0 0 / 25%);
-  border-radius: 50%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.avatar-element::before {
+  content: '';
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: rgb(0 0 0 / 25%);
+  border-radius: 50%;
 }
 
 .weapon {
@@ -389,8 +407,17 @@ body {
   top: 3px;
   left: 3px;
   z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -594,12 +621,4 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-}
-
-.plugin {
-  padding: 10px 0;
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.798);
-  text-align: center;
-  font-weight: bold;
 }

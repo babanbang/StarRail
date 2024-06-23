@@ -13,7 +13,7 @@ export default class Explore extends Base {
 
   async get () {
     const res = await MysInfo.get(this.e, [
-      ['index'], ['rogue', { detail: false }],
+      ['index'], ['rogue'],
       ['challenge', { need_all: false, schedule_type: 1 }]
     ])
 
@@ -87,7 +87,7 @@ export default class Explore extends Base {
       exploreInfo.challenge.max_floor_star = floor.star_num
     }
 
-    return await this.renderImg({ ...exploreInfo, uid: this.e.MysUid })
+    return await this.renderImg(exploreInfo)
   }
 
   dealTime (basic, type) {

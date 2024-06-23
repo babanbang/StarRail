@@ -45,7 +45,7 @@ export class sr_profile extends plugin {
     this.reply(img)
   }
 
-  /** 角色面板 */
+  /** 查询角色面板 */
   async Detail ({ profile }) {
     const img = await new Profile(this.e).detail(profile)
     if (!img) return
