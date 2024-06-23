@@ -5,6 +5,7 @@
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
   <link rel="shortcut icon" href="#" />
   <link rel="stylesheet" type="text/css" href="{{pluResPath}}html/explore/explore.css" />
+  <link rel="stylesheet" type="text/css" href="{{pluResPath}}html/element.css" />
   <link rel="preload" href="{{fontsPath}}tttgbnumber.ttf" as="font">
 </head>
 
@@ -54,9 +55,7 @@
             <div><img class="avatar-img" src="{{v.icon}}" /></div>
             {{if v.rank>0}}<div class="avatar-rank">{{v.rank}}</div>{{/if}}
             <div class="avatar-banner">Lv.{{v.level}} </div>
-            <div class="avatar-element" style="border-color: var('--borderColor-{{v.element}}');">
-              <img src="{{pluResPath}}imgs/element/{{v.element}}.png" />
-            </div>
+            <div class="avatar-element {{v.element}}"></div>
           </div>
         </div>
         {{/each}}
@@ -127,9 +126,7 @@
                   <div class="avatar-inner"></div>
                   {{if v.rank>0}}<div class="avatar-rank">{{v.rank}}</div>{{/if}}
                   <div class="avatar-banner">Lv.{{v.level}} </div>
-                  <div class="avatar-element" style="border-color: var('--borderColor-{{v.element}}');">
-                    <img src="{{pluResPath}}imgs/element/{{v.element}}.png" />
-                  </div>
+                  <div class="avatar-element {{v.element}}"></div>
                 </div>
               </div>
               {{/each}}
@@ -143,9 +140,7 @@
                   <div class="avatar-inner"></div>
                   {{if v.rank>0}}<div class="avatar-rank">{{v.rank}}</div>{{/if}}
                   <div class="avatar-banner">Lv.{{v.level}} </div>
-                  <div class="avatar-element" style="border-color: var('--borderColor-{{v.element}}');">
-                    <img src="{{pluResPath}}imgs/element/{{v.element}}.png" />
-                  </div>
+                  <div class="avatar-element  {{v.element}}"></div>
                 </div>
               </div>
               {{/each}}
@@ -166,7 +161,7 @@
           </div>
         </div>
         <div class="buff">
-          <img src="{{pluResPath}}imgs/challenge/2.png">
+          <img src="{{pluResPath}}imgs/challenge/buff.png">
           <div class="text">
             <p>{{challenge.name}}</p>
             <p>记忆紊流</p>

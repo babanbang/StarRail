@@ -9,14 +9,14 @@
 }
 
 .headerimg {
-  background-image: url('../../imgs/rogue/bg.png');
+  background-image: url('../../imgs/rogue/locust/locust_head.png');
   background-repeat: no-repeat;
   height: 690px;
   border-radius: 25px;
 }
 
 .record {
-  background: url('../../imgs/rogue/bg_fanyu.png')top left no-repeat #151a2c;
+  background: url('../../imgs/rogue/locust/locust_bg.png')top left no-repeat #151a2c;
   border-radius: 20px;
   margin-top: 15px;
   width: 100%;

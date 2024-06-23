@@ -105,11 +105,6 @@ body {
   left: -1%;
   width: 17%;
   height: 17%;
-  background: rgb(0 0 0 / 25%);
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .talent-box {

@@ -9,7 +9,7 @@
 <div class="record">
   <div class="record-world">
     {{if !isnous}}
-    <img class="record-world-icon" src="{{pluResPath}}img/rogue/locust.png" />
+    <img class="record-world-icon" src="{{pluResPath}}imgs/rogue/locust/locust_ball.png" />
     {{/if}}
     <div>
       {{if isnous}}
@@ -61,8 +61,7 @@
           <p>{{avatar.rank}}</p>
         </span>
         {{/if}}
-        <span class="avatar-element {{avatar.element}}"
-          style="border-color: var(--borderColor-{{avatar.element}});"></span>
+        <span class="avatar-element {{avatar.element}}"></span>
         <div class="avatar-inner"></div>
         <div class="avatar-name {{useBrowser}}">LV.{{avatar.level}} {{avatar.name}}</div>
       </div>
@@ -190,7 +189,7 @@
     <div class="record-weakness-content">
       {{each record.blocks bb}}
       <div class="record-pass-area-block">
-        <img src="{{pluResPath}}imgs/rogue/{{bb.name}}.png" />
+        <img src="{{pluResPath}}imgs/rogue/event/{{bb.name}}.png" />
         {{bb.name}} x{{bb.num}}
       </div>
       {{/each}}

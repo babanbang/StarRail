@@ -3,6 +3,7 @@
 {{block 'css'}}
 <link rel="stylesheet" type="text/css" href="{{pluResPath}}html/talent/talent.css" />
 <link rel="stylesheet" type="text/css" href="{{pluResPath}}html/profile/detail.css" />
+<link rel="stylesheet" type="text/css" href="{{pluResPath}}html/element.css" />
 <script src="{{res_Path}}script/chart.js"></script>
 {{/block}}
 
@@ -30,8 +31,7 @@
       {{/each}}
     </div>
     <div class="talents">
-      <span class="avatar-element"
-        style="background-image:url('{{pluResPath}}imgs/element/{{avatar.elem}}.png')"></span>
+      <span class="avatar-element {{avatar.elem}}"></span>
       {{ include `${pluResPath}html/talent/talent.html`,
       {_avatar:avatar,pluResPath,useBrowser:useBrowser||'',hasTalent:true,talentlist,usebg:false}
       }}

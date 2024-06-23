@@ -86,12 +86,11 @@ export default class Rogue extends Base {
         { lable: '已激活节点', num: data.skill_tree_activated, extra: this.lable.skill_tree },
         { lable: '稳态数组', num: data.basic.season_task_finished, extra: data.basic.season_task_total }
       ]
-    }, { nowk: true, test: true })
+    }, { nowk: true})
   }
 
   async rogue_nous () {
     this.model = 'rogue/rogue_nous'
-    return await this.renderImg('', { test: true })
 
     const res = await MysInfo.get(this.e, 'rogue_nous')
     if (res?.retcode !== 0) return false
@@ -111,12 +110,11 @@ export default class Rogue extends Base {
       ...data,
       role: player.getData('name,level,face'),
       records: this.records(data.detail.records),
-    }, { nowk: true, test: true })
+    }, { nowk: true })
   }
 
   async rogue_locust () {
     this.model = 'rogue/rogue_locust'
-    return await this.renderImg('', { test: true })
 
     const res = await MysInfo.get(this.e, 'rogue_locust')
     if (res?.retcode !== 0) return false
@@ -140,7 +138,7 @@ export default class Rogue extends Base {
         { lable: '已解锁奇物', num: data.basic.miracle, extra: this.lable.locust_miracle },
         { lable: '已解锁事件', num: data.basic.event, extra: this.lable.locust_event }
       ]
-    }, { nowk: true, test: true })
+    }, { nowk: true })
   }
 
   records (records) {

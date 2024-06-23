@@ -1,0 +1,47 @@
+.avatar-element {
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.fire {
+  -webkit-filter: brightness(2);
+  filter: brightness(2);
+  background-image: url('../imgs/element/fire.png');
+}
+
+.ice {
+  -webkit-filter: brightness(2);
+  filter: brightness(2);
+  background-image: url('../imgs/element/ice.png');
+}
+
+.imaginary {
+  -webkit-filter: brightness(2);
+  filter: brightness(2);
+  background-image: url('../imgs/element/imaginary.png');
+}
+
+.elec,
+.lightning {
+  -webkit-filter: brightness(2);
+  filter: brightness(2);
+  background-image: url('../imgs/element/elec.png');
+}
+
+.physical {
+  -webkit-filter: brightness(2);
+  filter: brightness(2);
+  background-image: url('../imgs/element/phy.png');
+}
+
+.quantum {
+  -webkit-filter: brightness(2);
+  filter: brightness(2);
+  background-image: url('../imgs/element/quantum.png');
+}
+
+.wind {
+  -webkit-filter: brightness(2);
+  filter: brightness(2);
+  background-image: url('../imgs/element/wind.png');
+}
