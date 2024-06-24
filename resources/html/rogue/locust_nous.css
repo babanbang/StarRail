@@ -297,6 +297,7 @@
   font-size: 22px;
   color: #ffffff;
   height: 40px;
+  z-index: 1;
 }
 
 .difficulty {

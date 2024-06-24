@@ -8,6 +8,11 @@
   position: relative;
 }
 
+.headerimg l {
+  position: relative;
+  z-index: 1;
+}
+
 .record {
   width: 100%;
   background: rgba(30, 32, 48);
@@ -29,6 +34,18 @@
   height: 300px;
 }
 
+.record::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../../imgs/rogue/nous/bg_top.png');
+  width: 150px;
+  height: 100px;
+}
+
 .record-world-title {
   margin-bottom: 20px;
   left: 40px;
@@ -41,6 +58,28 @@
   left: 70px;
 }
 
+.cur_progress::before {
+  content: '';
+  width: 200px;
+  height: 150px;
+  background-image: url('../../imgs/rogue/nous/head_1.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  z-index: 0;
+}
+
+.cur_progress::after {
+  content: '解锁秘闻';
+  font-size: 14px;
+  position: absolute;
+  width: 100px;
+  left: 60px;
+  z-index: 0;
+}
+
 .max_progress {
   font-size: 12px;
   color: #969899;
@@ -49,11 +88,40 @@
   left: 102px;
 }
 
+.max_rolling::before,
+.max_progress::before {
+  content: '/';
+  position: absolute;
+  left: -6px;
+}
+
 .cur_rolling {
   font-size: 36px;
   position: absolute;
   top: 275px;
   left: 465px;
+}
+
+.cur_rolling::before {
+  content: '';
+  width: 200px;
+  height: 150px;
+  background-image: url('../../imgs/rogue/nous/head_2.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: -45px;
+  left: -130px;
+  z-index: 0;
+}
+
+.cur_rolling::after {
+  content: '骰面收集';
+  font-size: 14px;
+  position: absolute;
+  width: 100px;
+  left: -80px;
+  z-index: 0;
 }
 
 .max_rolling {
@@ -71,6 +139,29 @@
   left: 240px;
 }
 
+.unlock_miracle::before {
+  content: '';
+  width: 200px;
+  height: 150px;
+  background-image: url('../../imgs/rogue/nous/head_3.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: -30px;
+  left: -170px;
+  z-index: 0;
+}
+
+.unlock_miracle::after {
+  content: '已解锁奇物：';
+  font-size: 14px;
+  position: absolute;
+  width: 100px;
+  top: 5px;
+  left: -85px;
+  z-index: 0;
+}
+
 .active_nerve {
   font-size: 22px;
   position: absolute;
@@ -79,9 +170,57 @@
 
 }
 
+.active_nerve::before {
+  content: '';
+  width: 200px;
+  height: 150px;
+  background-image: url('../../imgs/rogue/nous/head_3.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: -30px;
+  left: -110px;
+  z-index: 0;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.active_nerve::after {
+  content: '已激活神经：';
+  font-size: 14px;
+  position: absolute;
+  width: 100px;
+  top: 5px;
+  left: -85px;
+  z-index: 0;
+}
+
 .unlock_event {
   font-size: 22px;
   position: absolute;
   top: 597px;
   left: 285px;
+}
+
+.unlock_event::before {
+  content: '';
+  width: 200px;
+  height: 150px;
+  background-image: url('../../imgs/rogue/nous/head_3.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: -30px;
+  left: -170px;
+  z-index: 0;
+}
+
+.unlock_event::after {
+  content: '已解锁事件：';
+  font-size: 14px;
+  position: absolute;
+  width: 100px;
+  top: 5px;
+  left: -85px;
+  z-index: 0;
 }
