@@ -51,84 +51,63 @@
   color: rgba(8, 8, 8);
 }
 
-.head-box {
-  border-radius: 15px;
-  padding: 10px 20px;
-  position: relative;
-  color: #fff;
-  margin-top: 30px;
+.rogue-info {
+  width: 320px;
+  height: auto;
+  background-color: rgba(6, 6, 6, 0.5);
+  border-radius: 10px;
+  margin: auto auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.head-box .title {
-  font-family: "tttgbnumber";
-  font-size: 36px;
-  text-shadow: 0 0 1px #000, 1px 1px 3px rgba(0, 0, 0, 0.9);
+.rogue-info .item {
+  margin: 10px 10px 10px 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
-.head-box .title .label {
-  display: inline-block;
-  margin-left: 10px;
-}
-
-.head-box .genshin_logo {
-  position: absolute;
-  top: 1px;
-  right: 15px;
-  width: 97px;
-}
-
-.head-box .label {
-  font-size: 16px;
-  text-shadow: 0 0 1px #000, 1px 1px 3px rgba(0, 0, 0, 0.9);
-}
-
-.head-box .label span {
-  color: #d3bc8e;
-  padding: 0 2px;
-}
-
-.copyright {
-  font-size: 14px;
+.rogue-info .item p {
   text-align: center;
-  color: #fff;
-  position: relative;
-  padding-left: 10px;
-  text-shadow: 1px 1px 1px #000;
-  margin: 10px 0;
+  font-weight: bold;
 }
 
-.copyright .version {
-  color: #d3bc8e;
-  display: inline-block;
-  padding: 0 3px;
+.rogue-info .item p span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.const-rank-0 {
-  background: #606060;
+.rogue-info .item p:first-child {
+  color: rgba(255, 255, 255, 0.999);
+  font-size: 18px;
 }
 
-.const-rank-1 {
-  background: #89cb26;
-}
-
-.const-rank-2 {
-  background: #d1949e;
-}
-
-.const-rank-3 {
-  background: #1aa1d7;
-}
-
-.const-rank-4 {
-  background: #F08080;
-}
-
-.const-rank-5 {
-  background: #7B68EE;
-}
-
-.const-rank-6 {
-  background: #ff5222;
+.rogue-info .item p:last-child {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .container::before {
@@ -142,6 +121,28 @@
   background-color: #100A0E;
   opacity: 0.9;
   z-index: -1;
+}
+
+.const-rank-1 {
+  background: rgb(96, 96, 96);
+}
+
+.cate2,
+.const-rank-2 {
+  background: rgb(26, 161, 215);
+}
+
+.cate3 {
+  background-color: rgb(97, 55, 159);
+}
+
+.const-rank-4 {
+  background: rgb(255, 82, 34);
+}
+
+.cate4,
+.const-rank-5 {
+  background: rgb(167 145 4);
 }
 
 .header {
@@ -164,37 +165,6 @@
   text-align: center;
   font-size: 14px;
   margin-top: 5px;
-}
-
-.header-content {
-  border-radius: 10px;
-  margin-top: 15px;
-  margin-left: 30px;
-  margin-right: 30px;
-  background: rgba(11, 12, 17, 0.5);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.header-content-block {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  width: 33%;
-}
-
-.header-content-block-title {
-  padding-top: 10px;
-  text-align: center;
-  color: #cacaca;
-  font-size: 20px;
-}
-
-.header-content-block-value {
-  text-align: center;
-  color: #fdfdfd;
-  font-size: 28px;
 }
 
 .statistics-before {
@@ -293,6 +263,13 @@
   display: flex;
   padding-bottom: 10px;
   color: #d0d0d0;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .record-world div {
@@ -300,14 +277,14 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  color: #d0d0d0;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
 }
 
 .record-world-icon {
@@ -317,11 +294,17 @@
 
 .record-world-title {
   position: relative;
-  left: 40px;
-  margin-bottom: 20px;
   font-size: 22px;
   color: #ffffff;
   height: 40px;
+}
+
+.difficulty {
+  width: 45px;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 15px;
 }
 
 .record-world-dif {
@@ -335,7 +318,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  left: 100px
+  margin-left: auto;
 }
 
 .record-world-dif-other {
@@ -368,16 +351,19 @@
   font-size: 12px;
   margin-left: 15px;
   padding-bottom: 10px;
+  position: relative;
 }
 
 .divider {
   border-top: 1px solid #c9cacf;
   margin-left: 15px;
   margin-right: 15px;
+  position: relative;
 }
 
 .record-characters {
   margin-top: 10px;
+  position: relative;
 }
 
 .record-characters-title {
@@ -437,8 +423,8 @@
 }
 
 .avatar-element {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   top: 7px;
   left: 7px;
@@ -488,6 +474,7 @@
   display: flex;
   margin-left: 15px;
   margin-top: 5px;
+  position: relative;
 }
 
 .record-wish-icon {
@@ -570,6 +557,7 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  border-radius: 0 15px 0 0;
 }
 
 .record-weakness-content {
@@ -610,6 +598,7 @@
   margin-right: 15px;
   margin-top: 10px;
   font-size: 12px;
+  position: relative;
 }
 
 .record-wish-detail-header {

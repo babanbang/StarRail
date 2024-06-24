@@ -1,9 +1,9 @@
 {{extend defaultLayout}}
 
 {{block 'css'}}
-<link rel="stylesheet" href="{{pluResPath}}html/rogue/rogue_locust.css">
 <link rel="stylesheet" href="{{pluResPath}}html/rogue/locust_nous.css">
 <link rel="stylesheet" type="text/css" href="{{pluResPath}}html/element.css" />
+<link rel="stylesheet" href="{{pluResPath}}html/rogue/rogue_locust.css">
 {{/block}}
 
 {{block 'main'}}
@@ -20,92 +20,72 @@
         <p>UID: {{uid}}</p>
       </div>
     </div>
-    <div class="header-content">
-      <div class="header-content-block">
-        <div class="header-content-block-value">
-          {{basic.cnt.narrow}}
-        </div>
-        <div class="header-content-block-title">
-          行者之道
-        </div>
+    <div class="rogue-info">
+      {{each line v}}
+      <div class="item">
+        <p>{{v.num}}{{if v.extra}}<span>/{{v.extra}}</span>{{/if}}</p>
+        <p>{{v.lable}}</p>
       </div>
-      <div class="header-content-block">
-        <div class="header-content-block-value">
-          {{basic.cnt.miracle}}
-        </div>
-        <div class="header-content-block-title">
-          已解锁奇物
-        </div>
-      </div>
-      <div class="header-content-block">
-        <div class="header-content-block-value">
-          {{basic.cnt.event}}
-        </div>
-        <div class="header-content-block-title">
-          已解锁事件
-        </div>
-      </div>
+      {{/each}}
     </div>
   </div>
 
   <div class="radar">
     <div class="radar-block">
-      <div>
-        <img src="{{pluResPath}}imgs/rogue/radar.png" class="radar-bg" />
-      </div>
+      <img src="{{pluResPath}}imgs/rogue/locust/radar.png" class="radar-bg" />
       <div class="radar-icon" style="top: 337px; left: 183px">
         <div class="radar-icon-item" style="left: -52px;top: 75px">
           <div style="text-align: center">存护</div>
           <div class="radar-num">{{basic.destiny[0].level}}</div>
         </div>
-        <img src="{{res_Path}}common/talent/存护-s.png" />
+        <img src="{{pluResPath}}imgs/rogue/talent/存护.png" />
       </div>
-      <div class="radar-icon" style="top: 253px; left: 150px">
+      <div class="radar-icon" style="top: 253px; left: 145px">
         <div class="radar-icon-item" style="left: -56px;top: 48px;width: 50px;">
           <div style="text-align: center">记忆</div>
           <div class="radar-num">{{basic.destiny[1].level}}</div>
         </div>
-        <img src="{{res_Path}}common/talent/记忆-s.png" />
+        <img src="{{pluResPath}}imgs/rogue/talent/记忆.png" />
       </div>
-      <div class="radar-icon" style="top: 168px; left: 183px">
+      <div class="radar-icon" style="top: 165px; left: 181px">
         <div class="radar-icon-item" style="left: -50px;top: 20px;width: 50px;">
           <div style="text-align: center">虚无</div>
           <div class="radar-num">{{basic.destiny[2].level}}</div>
         </div>
-        <img src="{{res_Path}}common/talent/虚无-s.png" />
+        <img src="{{pluResPath}}imgs/rogue/talent/虚无.png" />
       </div>
-      <div class="radar-icon" style="top: 130px; left: 270px">
+      <div class="radar-icon" style="top: 130px; left: 268px">
         <div style="margin-top: -40px;margin-bottom: 8px">
           <div style="text-align: center">丰饶</div>
           <div class="radar-num">{{basic.destiny[3].level}}</div>
         </div>
-        <img src="{{res_Path}}common/talent/丰饶-s.png" />
+        <img src="{{pluResPath}}imgs/rogue/talent/丰饶.png" />
       </div>
-      <div class="radar-icon" style="top: 165px; left: 358px">
+      <div class="radar-icon" style="top: 163px; left: 358px">
         <div class="radar-icon-item" style="left: 25px;top: 20px;width: 50px;">
           <div class="radar-num">{{basic.destiny[4].level}}</div>
           <div style="text-align: center">巡猎</div>
         </div>
-        <img src="{{res_Path}}common/talent/巡猎-s.png" />
+        <img src="{{pluResPath}}imgs/rogue/talent/巡猎.png" />
       </div>
       <div class="radar-icon" style="top: 253px; left: 393px">
         <div class="radar-icon-item" style="left: 34px;top: 45px;width: 50px;">
           <div class="radar-num">{{basic.destiny[5].level}}</div>
           <div style="text-align: center">毁灭</div>
         </div>
-        <img src="{{res_Path}}common/talent/毁灭-s.png" />
+        <img src="{{pluResPath}}imgs/rogue/talent/毁灭.png" />
       </div>
-      <div class="radar-icon" style="top: 338px; left: 357px">
+      <div class="radar-icon" style="top: 340px; left: 355px">
         <div class="radar-icon-item" style="left: 28px;top: 75px;width: 50px;">
           <div class="radar-num">{{basic.destiny[6].level}}</div>
           <div style="text-align: center">欢愉</div>
         </div>
-        <img src="{{res_Path}}common/talent/欢愉-s.png" />
+        <img src="{{pluResPath}}imgs/rogue/talent/欢愉.png" />
       </div>
     </div>
   </div>
 </div>
 
-{{ include `${pluResPath}html/rogue/locust_nous.html`, {detail,pluResPath,roman,isnous:false,useBrowser,res_Path} }}
+{{ include `${pluResPath}html/rogue/locust_nous.html`, {detail,pluResPath,isnous:false,useBrowser,res_Path} }}
 
 {{/block}}

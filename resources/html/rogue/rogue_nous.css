@@ -9,11 +9,29 @@
 }
 
 .record {
-  background: url('../../imgs/rogue/nous/nous_bg.png')top left no-repeat #151a2c;
+  width: 100%;
+  background: rgba(30, 32, 48);
   border-radius: 20px;
   margin-top: 15px;
-  width: 100%;
   padding-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.record::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../../imgs/rogue/nous/nous_bg.png');
+  width: 100%;
+  height: 300px;
+}
+
+.record-world-title {
+  margin-bottom: 20px;
+  left: 40px;
 }
 
 .cur_progress {

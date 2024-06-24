@@ -33,7 +33,6 @@ export default class Rogue extends Base {
     player.setBasicData(data.role, true)
 
     return await this.renderImg({
-      roman: this.roman,
       role: player.getData('name,level,face'),
       records: this.records(data[`${thisMonth ? 'current' : 'last'}_record`].records),
       line: [
@@ -47,20 +46,20 @@ export default class Rogue extends Base {
   async rogue_tourn () {
     this.model = 'rogue/rogue_tourn'
 
-    const thisMonth = !(this.e.msg.includes('上期') || this.e.msg.includes('往期'))
+    const thisMonth = !(/(往|上)(周|期)/g.test(this.e.msg))
     const types = this.e.msg.includes('常规')
       ? ['normal']
       : this.e.msg.includes('周期')
-        ? [(thisMonth ? 'cur' : 'last') + 'week']
-        : ['normal', (thisMonth ? 'cur' : 'last') + 'week']
+        ? [(thisMonth ? 'cur' : 'last') + '_week']
+        : ['normal', (thisMonth ? 'cur' : 'last') + '_week']
 
     const res = await MysInfo.get(this.e, 'rogue_tourn')
     if (res?.retcode !== 0) return false
 
     const { data = {} } = res
     if (
-      data[types[0] + '_detail']?.records?.length === 0 &&
-      data[types[1] + '_detail']?.records?.length === 0
+      !data[types[0] + '_detail']?.records?.length &&
+      !data[types[1] + '_detail']?.records?.length
     ) {
       this.e.reply(`UID:${this.e.MysUid},差分宇宙暂无挑战数据。`)
       return false
@@ -71,22 +70,30 @@ export default class Rogue extends Base {
 
     const tourn = {}
     types.forEach(type => {
-      tourn[type.replace(/^(cur|last)_/, '')] = {
-        ...data[type + '_detail'],
-        records: this.records(data[type + '_detail'].records)
+      if (data[type + '_detail']?.records?.length > 0) {
+        tourn[type.replace(/^(cur|last)_/, '')] = {
+          ...data[type + '_detail'],
+          records: this.records(data[type + '_detail'].records)
+        }
       }
     })
 
+    for (let i of ['normal_record_brief', 'weekly_record_brief']) {
+      if (data.basic[i].common_info.area_id) {
+        data.basic[i].common_info.area_id = String(data.basic[i].common_info.area_id).slice(-1)
+      }
+    }
+
     return await this.renderImg({
-      roman: this.roman,
+      ...data,
       role: player.getData('name,level,face'),
       ...tourn,
       line: [
         { lable: '可能性画廊', num: data.basic.possibility_gallery_progress + '%' },
-        { lable: '已激活节点', num: data.skill_tree_activated, extra: this.lable.skill_tree },
+        { lable: '已激活节点', num: data.basic.skill_tree_activated, extra: this.lable.skill_tree },
         { lable: '稳态数组', num: data.basic.season_task_finished, extra: data.basic.season_task_total }
       ]
-    }, { nowk: true})
+    }, { nowk: true })
   }
 
   async rogue_nous () {
@@ -106,7 +113,6 @@ export default class Rogue extends Base {
 
     delete data.basic.exist_data
     return await this.renderImg({
-      roman: this.roman,
       ...data,
       role: player.getData('name,level,face'),
       records: this.records(data.detail.records),
@@ -129,14 +135,13 @@ export default class Rogue extends Base {
     player.setBasicData(data.role, true)
 
     return await this.renderImg({
-      roman: this.roman,
       ...data,
       role: player.getData('name,level,face'),
       records: this.records(data.detail.records),
       line: [
-        { lable: '行者之道', num: data.basic.narrow, extra: this.lable.locust_narrow },
-        { lable: '已解锁奇物', num: data.basic.miracle, extra: this.lable.locust_miracle },
-        { lable: '已解锁事件', num: data.basic.event, extra: this.lable.locust_event }
+        { lable: '行者之道', num: data.basic.cnt.narrow, extra: this.lable.locust_narrow },
+        { lable: '已解锁奇物', num: data.basic.cnt.miracle, extra: this.lable.locust_miracle },
+        { lable: '已解锁事件', num: data.basic.cnt.event, extra: this.lable.locust_event }
       ]
     }, { nowk: true })
   }
@@ -162,6 +167,9 @@ export default class Rogue extends Base {
         record.worm_weak = record.boss_effect.map(weak => {
           return weak.replace(/<color=([^>]+)>([^<]+)<\/color>/g, '<span style="color: $1">$2</span>')
         })
+      }
+      if (record.common_info) {
+        record.common_info.area_id = String(record.common_info.area_id).slice(-1)
       }
       return record
     }).slice(0, 3)

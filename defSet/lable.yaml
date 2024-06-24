@@ -17,11 +17,11 @@ unlocked_miracle: 60
 unlocked_buff: 232
 
 # 差分宇宙已解锁节点
-skill_tree: -
+skill_tree: 0
 
 # 寰宇蝗灾行者之道
-locust_narrow: -
+locust_narrow: 0
 # 寰宇蝗灾已解锁奇物
-locust_miracle: -
+locust_miracle: 0
 # 寰宇蝗灾已解锁事件
-locust_event: -
+locust_event: 0

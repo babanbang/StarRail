@@ -15,10 +15,10 @@ export class sr_rogue extends plugin {
           reg: new RegExp(`^${reg}?[上期|往期|本期]*模拟宇宙$`, 'i'),
           fnc: 'rogue'
         },
-        // {
-        //   reg: new RegExp(`^${reg}?(差分宇宙|[上期|往期|本期]*周期演算|常规演算)$`, 'i'),
-        //   fnc: 'rogue_tourn'
-        // },
+        {
+          reg: new RegExp(`^${reg}?[上周|上期|往期|本期]*(差分(宇宙)*|(差分(宇宙)*)*(周期|常规)演算)$`, 'i'),
+          fnc: 'rogue_tourn'
+        },
         {
           reg: new RegExp(`^${reg}?黄金与机械$`, 'i'),
           fnc: 'rogue_nous'

@@ -1,0 +1,329 @@
+body {
+  width: 820px;
+}
+
+.container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 40px;
+}
+
+.normal_week {
+  margin-left: 10px;
+  width: 770px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.headerimg {
+  background-image: url('../../imgs/rogue/tourn/tourn.png');
+  background-repeat: no-repeat;
+  height: 690px;
+  border-radius: 25px;
+  background-size: cover;
+  color: rgb(230, 179, 25);
+  position: relative;
+}
+
+.header-tip {
+  margin-top: 20px;
+  margin-left: 150px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.container::before {
+  background-color: rgb(37, 36, 31);
+}
+
+.rogue-info-tourn {
+  width: 490px;
+  background: none;
+  border-radius: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url('../../imgs/rogue/tourn/normal_center.png'), url('../../imgs/rogue/tourn/long_box.png');
+}
+
+.rogue-info-top {
+  width: 490px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.rogue-info-tourn-nl {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 200px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url('../../imgs/rogue/tourn/normal_box.png');
+  position: relative;
+}
+
+.rogue-info-tourn-nl::before {
+  content: '';
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 46%;
+  background-size: contain;
+  background-image: url('../../imgs/rogue/tourn/normal_left.png');
+  position: absolute;
+  left: 0;
+}
+
+.rogue-info-tourn-lr {
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 490px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url('../../imgs/rogue/tourn/long_box.png');
+  position: relative;
+}
+
+.rogue-info-tourn-lr::before {
+  content: '';
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 23%;
+  background-size: contain;
+  background-image: url('../../imgs/rogue/tourn/long_right.png');
+  position: absolute;
+  right: 0;
+}
+
+.rogue-info-tourn-lr img {
+  height: 30px;
+}
+
+.rogue-info-tourn-nl img {
+  height: 40px;
+}
+
+.rogue-info-tourn-nl .text {
+  width: 100px;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.item-line {
+  width: 60%;
+  height: 4px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  margin: 2px;
+  background-image: url('../../imgs/rogue/tourn/line.png');
+}
+
+.rogue-info .item {
+  width: 125px;
+}
+
+.rogue-info .item p span {
+  font-size: 18px;
+}
+
+.rogue-info .item p:first-child {
+  font-size: 28px;
+}
+
+.rogue-info .item p:last-child {
+  font-size: 18px;
+}
+
+.record {
+  width: 100%;
+  background: rgba(41, 38, 35);
+  border-radius: 20px;
+  margin-top: 15px;
+  padding-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.record::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../../imgs/rogue/tourn/tourn-detail.png');
+  width: 100%;
+  height: 300px;
+}
+
+.difficulty-tourn {
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 15px;
+}
+
+.difficulty-tourn p {
+  position: absolute;
+  bottom: 4px;
+  right: 7px;
+  font-size: 10px;
+  color: rgb(228, 177, 110);
+}
+
+.formula {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.formula-img {
+  border: 2px solid rgb(236, 211, 129);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 25px;
+  width: 79px;
+  height: 33px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.formula-icon {
+  height: 220%;
+  position: absolute;
+  left: 5%;
+  top: -45%;
+}
+
+.formula-sub_icon {
+  height: 90%;
+  position: absolute;
+  right: 14%;
+}
+
+.formula-name {
+  font-size: 10px;
+}
+
+.record-weakness-header {
+  background-color: rgb(163, 127, 79);
+}
+
+.weekly-tip {
+  font-size: 24px;
+  width: 100%;
+  background: rgba(41, 38, 35);
+  border-radius: 20px;
+  color: rgb(228, 177, 110);
+  background-image: url('../../imgs/rogue/tourn/tourn.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+}
+
+.weekly-tip-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.weekly-tip-top img {
+  height: 80px;
+}
+
+.weekly-tip-top::after {
+  content: '';
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+}
+
+.weekly-tip-top-times {
+  margin-left: auto;
+  color: rgb(255, 255, 255);
+}
+
+.weekly-tip-buff {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.646);
+}
+
+.weekly-tip-buff .week_name {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.weekly-tip-buff p {
+  margin-bottom: 10px;
+}

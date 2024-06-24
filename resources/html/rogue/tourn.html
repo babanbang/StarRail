@@ -1,42 +1,19 @@
-{{extend defaultLayout}}
-
-{{block 'css'}}
-<link rel="stylesheet" type="text/css" href="{{pluResPath}}html/rogue/rogue.css" />
-<link rel="stylesheet" type="text/css" href="{{pluResPath}}html/element.css" />
-{{/block}}
-
-{{block 'main'}}
-<div class="data_box">
-  <div class="data_box-info">
-    <div class="top">
-      <div class="role-image"
-        style="background-image: url('{{role.face||`${pluResPath}meta/character/common/imgs/face.png`}}')"></div>
-      <div class="role-text">
-        <p>{{role.name}}<span>Lv.{{role.level}}</span></p>
-        <p>UID: {{uid}}</p>
-      </div>
-    </div>
-    <div class="title">数据总览</div>
-    <div class="rogue-info">
-      {{each line v}}
-      <div class="item">
-        <p>{{v.num}}{{if v.extra}}<span>/{{v.extra}}</span>{{/if}}</p>
-        <p>{{v.lable}}</p>
-      </div>
-      {{/each}}
-    </div>
+<div class="records-header">
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="records-header-title">
+    仅展示最近3次的通关数据
   </div>
 </div>
-
-{{if records.length>0}}
-{{each records record}}
+{{each detail.records record}}
 <div class="record">
   <div class="record-world">
-    <div class="record-world-icon"></div>
-    <div>{{record.name}} <img class="difficulty" src="{{pluResPath}}imgs/rogue/floor/{{record.difficulty}}.png" /></div>
-    <div class="high-score">
-      <div class="high-score-title">当前最高积分</div>
-      <div class="high-score-value">{{record.score}}</div>
+    <div class="record-world-title">
+      {{if weekly}}周期演算{{else}}常规演算{{/if}}·通关记录
+    </div>
+    <div class="difficulty-tourn"
+      style="background-image: url('{{pluResPath}}imgs/rogue/floor/{{record.common_info.area_id}}{{record.common_info.difficulty>0?'-t':''}}.png')">
+      <p>{{record.common_info.difficulty>0?record.common_info.difficulty:''}}</p>
     </div>
   </div>
   <div class="record-time">
@@ -46,7 +23,7 @@
   <div class="divider"></div>
   <div class="record-characters">
     <div class="record-characters-title">
-      通关使用角色
+      探索队伍
     </div>
     <div class="record-characters-list">
       {{each record.final_lineup avatar}}
@@ -67,7 +44,7 @@
   <div class="record-wish">
     {{each record.base_type_list base}}
     <div class="record-wish-icon">
-      <img src="{{res_Path}}common/talent/{{base.name.slice(1,3)}}-s.png" />
+      <img src="{{res_Path}}common/talent/{{base.name}}-s.png" />
     </div>
     <div class="circle-3">
       {{base.cnt}}
@@ -75,17 +52,45 @@
     {{/each}}
   </div>
   <div class="record-wish-detail">
-    <div class="record-wish-detail-header">
+    <div class="record-weakness-header">
+      <span>加权奇物</span>
+    </div>
+    <div class="record-weakness-content">
+      {{each record.hex_miracles miracle}}
+      <div class="qiwu const-rank-{{miracle.rank}}">
+        <img src="{{miracle.icon}}" />
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <div class="record-wish-detail">
+    <div class="record-weakness-header">
+      <span>已展开方程</span>
+    </div>
+    <div class="record-weakness-content">
+      {{each record.formula_list formula}}
+      <div class="formula">
+        <div class="formula-img cate{{formula.formula_category}}">
+          <img class="formula-icon" src="{{formula.icon}}" />
+          <img class="formula-sub_icon" src="{{formula.sub_icon}}" />
+        </div>
+        <div class="formula-name">{{formula.name}}{{}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <div class="record-wish-detail">
+    <div class="record-weakness-header">
       <span>获得祝福</span>
     </div>
     {{each record.buffs buff}}
-    <div class="record-wish-detail-content">
+    <div class="record-weakness-content" style="flex-wrap: unset">
       <div class="record-wish-detail-content-left">
         <div class="record-wish-icon">
-          <img src="{{res_Path}}common/talent/{{buff.base_type.name.slice(1,3)}}-s.png" />
+          <img src="{{res_Path}}common/talent/{{buff.base_type.name}}-s.png" />
         </div>
         <div class="record-wish-detail-content-left-title">
-          {{buff.base_type.name}}:
+          {{buff.base_type.name}} ：
         </div>
       </div>
       <div class="record-wish-detail-content-right">
@@ -104,10 +109,10 @@
     {{/each}}
   </div>
   <div class="record-wish-detail">
-    <div class="record-wish-detail-header">
+    <div class="record-weakness-header">
       <span>获得奇物</span>
     </div>
-    <div class="record-wish-detail-content">
+    <div class="record-weakness-content">
       {{each record.miracles miracle}}
       <div class="qiwu const-rank-{{miracle.rank}}">
         <img src="{{miracle.icon}}" />
@@ -117,5 +122,3 @@
   </div>
 </div>
 {{/each}}
-{{/if}}
-{{/block}}

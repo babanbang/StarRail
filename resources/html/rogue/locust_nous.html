@@ -8,40 +8,27 @@
 {{each detail.records record}}
 <div class="record">
   <div class="record-world">
-    {{if !isnous}}
-    <img class="record-world-icon" src="{{pluResPath}}imgs/rogue/locust/locust_ball.png" />
+    {{if isnous}}
+    <img class="locust_ball" src="{{pluResPath}}imgs/rogue/locust/locust_ball.png" />
     {{/if}}
-    <div>
-      {{if isnous}}
-      <div class="record-world-title">
-        <span> <b>{{record.name_mi18n}}</b>
-          <span style="color: #eadc75;">
-            难度：<b>
-              {{if record.difficulty==5}}
-              <span style="color: #f40e0e;">{{roman[record.difficulty]}}</span>
-              {{else}}
-              {{roman[record.difficulty]}}
-              {{/if}}</b>
-          </span>
-        </span>
+    <div class="record-world-title">
+      {{record.name_mi18n||record.name}}
+    </div>
+    {{if record.difficulty_type1_value||record.difficulty_type2_value}}
+    <div class="record-world-dif">
+      {{if record.difficulty_type1_value}}
+      <div class="record-world-dif-other">
+        属性难题：+{{record.difficulty_type1_value}}
       </div>
-      <div class="record-world-dif">
-        {{if record.difficulty_type1_value}}
-        <div class="record-world-dif-other">
-          属性难题：+{{record.difficulty_type1_value}}
-        </div>
-        {{/if}}
-        {{if record.difficulty_type2_value}}
-        <div class="record-world-dif-other">
-          追加难题：+{{record.difficulty_type2_value}}
-        </div>
-        {{/if}}
+      {{/if}}
+      {{if record.difficulty_type2_value}}
+      <div class="record-world-dif-other">
+        追加难题：+{{record.difficulty_type2_value}}
       </div>
-      {{else}}
-      {{record.name}}
-      难度{{roman[record.difficulty]}}
       {{/if}}
     </div>
+    {{/if}}
+    <img class="difficulty" src="{{pluResPath}}imgs/rogue/floor/{{record.difficulty}}{{isnous?'-n':''}}.png" />
   </div>
   <div class="record-time">
     挑战时间： {{record.finish_time.year}}.{{record.finish_time.month}}.{{record.finish_time.day}}
@@ -176,7 +163,7 @@
     </div>
     <div class="record-weakness-content">
       {{each record.miracles miracle}}
-      <div class="qiwu">
+      <div class="qiwu const-rank-{{miracle.rank}}">
         <img src="{{miracle.icon}}" />
       </div>
       {{/each}}

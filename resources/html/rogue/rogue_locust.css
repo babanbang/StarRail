@@ -16,11 +16,24 @@
 }
 
 .record {
-  background: url('../../imgs/rogue/locust/locust_bg.png')top left no-repeat #151a2c;
+  width: 100%;
+  background: rgba(38, 36, 73);
   border-radius: 20px;
   margin-top: 15px;
-  width: 100%;
   padding-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.record::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../../imgs/rogue/locust/locust_bg.png');
+  width: 100%;
+  height: 300px;
 }
 
 .radar-block {
@@ -46,19 +59,45 @@
   color: #b2a8e9;
   width: 30px;
   height: 30px;
-  background: #0b0c11;
-  border-radius: 15px;
-  border: #c7c7c7 solid 1px;
   position: absolute;
 }
 
 .radar-icon img {
-  margin-left: 3px;
-  margin-top: 3px;
-  width: 22px;
+  width: 33px;
 }
 
 .radar-text1 {
   font-size: 16px;
   color: #c9cacf;
+}
+
+.locust_ball {
+  width: 50px;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 15px;
+}
+
+.rogue-info {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 15px;
+  width: 80%;
+}
+
+.rogue-info .item {
+  width: 115px;
+}
+
+.rogue-info .item p span {
+  font-size: 18px;
+}
+
+.rogue-info .item p:first-child {
+  font-size: 28px;
+}
+
+.rogue-info .item p:last-child {
+  font-size: 18px;
 }

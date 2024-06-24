@@ -1,0 +1,125 @@
+{{extend defaultLayout}}
+
+{{block 'css'}}
+<link rel="stylesheet" href="{{pluResPath}}html/rogue/locust_nous.css">
+<link rel="stylesheet" type="text/css" href="{{pluResPath}}html/element.css" />
+<link rel="stylesheet" href="{{pluResPath}}html/rogue/rogue_tourn.css">
+{{if normal?.records?.length>0 && week?.records?.length>0}}
+<style>
+  body {
+    width: 1600px;
+  }
+</style>
+{{/if}}
+
+{{/block}}
+
+{{block 'main'}}
+<div class="normal_week">
+  <div class="headerimg">
+    <div class="header">
+      <div class="header-title">
+        差分宇宙·人间喜剧
+      </div>
+      <div class="top">
+        <div class="role-image"
+          style="background-image: url('{{role.face||`${pluResPath}meta/character/common/imgs/face.png`}}')"></div>
+        <div class="role-text">
+          <p>{{role.name}}<span>Lv.{{role.level}}</span></p>
+          <p>UID: {{uid}}</p>
+        </div>
+      </div>
+      <div class="rogue-info-top">
+        <div class="rogue-info-tourn-nl">
+          <img src="{{pluResPath}}imgs/rogue/tourn/icon_level.png">
+          <div class="text">
+            <p>拟合等级</p>
+            <span class="item-line"></span>
+            <p>{{basic.season_level}}</p>
+          </div>
+        </div>
+        <div class="rogue-info-tourn-nl">
+          <img src="{{pluResPath}}imgs/rogue/tourn/icon_week.png">
+          <div class="text">
+            <p>本周额外拟合值</p>
+            <span class="item-line"></span>
+            <p>{{basic.weekly_score}}/1000</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-tip">数据一览</div>
+      <div class="rogue-info rogue-info-tourn">
+        {{each line v}}
+        <div class="item">
+          <p>{{v.num}}{{if v.extra}}<span>/{{v.extra}}</span>{{/if}}</p>
+          <span class="item-line"></span>
+          <p>{{v.lable}}</p>
+        </div>
+        {{/each}}
+      </div>
+
+      <div class="header-tip">常规演算</div>
+      <div class="rogue-info-tourn-lr">
+        最高通关难度
+        <div class="difficulty-tourn"
+          style="margin-left: auto; background-image: url('{{pluResPath}}imgs/rogue/floor/{{basic.normal_record_brief.common_info.area_id}}{{basic.normal_record_brief.common_info.difficulty>0?'-t':''}}.png')">
+          <p>{{basic.normal_record_brief.common_info.difficulty>0?basic.normal_record_brief.common_info.difficulty:''}}
+          </p>
+        </div>
+        <img src="{{basic.normal_record_brief.icon}}">
+        <span style="color: {{basic.normal_record_brief.color}};font-size: 12px;">
+          {{basic.normal_record_brief.title}}
+        </span>
+      </div>
+
+      <div class="header-tip">周期演算</div>
+      <div class="rogue-info-tourn-lr">
+        本周首通奖励
+        {{ if !basic.weekly_record_brief.finished_weekly}}
+        <span style="margin-left: auto; color: rgba(114, 114, 114, 0.585);">未领取</span>
+        {{else}}
+        <span style="margin-left: auto;">已领取</span>
+        {{/if}}
+      </div>
+      <div class="rogue-info-tourn-lr">
+        本周最高通关难度
+        {{ if !basic.weekly_record_brief.finished_weekly}}
+        <span style="margin-left: auto; color: rgba(114, 114, 114, 0.585);">尚未挑战</span>
+        {{else}}
+        <div class="difficulty-tourn"
+          style="margin-left: auto; background-image: url('{{pluResPath}}imgs/rogue/floor/{{basic.weekly_record_brief.common_info.area_id}}{{basic.weekly_record_brief.common_info.difficulty>0?'-t':''}}.png')">
+          <p>{{basic.weekly_record_brief.common_info.difficulty>0?basic.weekly_record_brief.common_info.difficulty:''}}
+          </p>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  {{if normal?.records?.length>0}}
+  {{ include `${pluResPath}html/rogue/tourn.html`, {detail:normal,pluResPath,useBrowser,res_Path,weekly:false} }}
+  {{/if}}
+
+  {{if normal?.records?.length>0 && week?.records?.length>0}}
+</div>
+<div class="normal_week">
+  {{/if}}
+
+  {{if week?.records?.length>0}}
+  <div class="weekly-tip">
+    <div class="weekly-tip-top ">
+      <img src="{{pluResPath}}imgs/rogue/tourn/icon_week.png">
+      差分宇宙·人间喜剧
+      <span class="weekly-tip-top-times">挑战次数：{{week.weekly_challenge_counts}}次</span>
+    </div>
+    <div class="weekly-tip-buff">
+      <p class="week_name">{{week.weekly_name}}</p>
+      {{each week.weekly_buff_desc desc}}
+      <p>{{desc}}</p>
+      {{/each}}
+    </div>
+  </div>
+  {{ include `${pluResPath}html/rogue/tourn.html`, {detail:week,pluResPath,useBrowser,res_Path,weekly:true} }}
+  {{/if}}
+</div>
+{{/block}}

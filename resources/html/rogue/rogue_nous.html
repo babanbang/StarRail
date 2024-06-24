@@ -1,9 +1,9 @@
 {{extend defaultLayout}}
 
 {{block 'css'}}
-<link rel="stylesheet" href="{{pluResPath}}html/rogue/rogue_nous.css">
 <link rel="stylesheet" href="{{pluResPath}}html/rogue/locust_nous.css">
 <link rel="stylesheet" type="text/css" href="{{pluResPath}}html/element.css" />
+<link rel="stylesheet" href="{{pluResPath}}html/rogue/rogue_nous.css">
 {{/block}}
 
 {{block 'main'}}
@@ -26,6 +26,6 @@
   {{/each}}
 </div>
 
-{{ include `${pluResPath}html/rogue/locust_nous.html`, {detail,pluResPath,roman,isnous:true,useBrowser,res_Path} }}
+{{ include `${pluResPath}html/rogue/locust_nous.html`, {detail,pluResPath,isnous:true,useBrowser,res_Path} }}
 
 {{/block}}
