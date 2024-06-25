@@ -32,7 +32,7 @@ export default class Explore extends Base {
 
     exploreInfo.role = {
       ...rogue.data.role,
-      region: MysUtil.ServerToRegion(rogue.data.role.server),
+      region: MysUtil.RegionName(rogue.data.role.server, this.game),
       face: player.face,
       card: player.card
     }
