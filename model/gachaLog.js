@@ -23,8 +23,8 @@ export default class Role extends Base {
     return Data.gamePath(this.game) + `GachaData/${this.uid}/${type}.json`
   }
 
-  get GachaUserPath () {
-    return Data.gamePath(this.game) + `GachaData/${this.uid}/user.json`
+  GachaUserPath (uid = '') {
+    return Data.gamePath(this.game) + `GachaData/${uid || this.uid}/user.json`
   }
 
   getIcon (name, type = "role") {
@@ -40,25 +40,26 @@ export default class Role extends Base {
 
   async checkPermission (user_id) {
     const { uid, type } = await MysInfo.getMainUid(this.e, this.game)
-    const GachaUser = Data.readJSON(this.GachaUserPath, { root: true, def: { master: [], ban: [] } })
     if (['ck', 'sk', 'all'].includes(type)) {
-      return uid
+      return { uid, check: true }
     }
 
-    if (GachaUser.master.some?.(item => item == user_id)) {
-      return uid
+    const GachaUser = Data.readJSON(this.GachaUserPath(uid), { root: true, def: { master: [], ban: [] } })
+    if (GachaUser.master.some(item => item == user_id)) {
+      return { uid, check: true }
     }
 
-    return false
+    return { uid, check: false }
   }
 
   async getLog (p = false) {
     if (!p) {
-      this.uid = await this.checkPermission(this.e.user_id)
-      if (!this.uid) {
+      const { uid, check } = await this.checkPermission(this.e.user_id)
+      if (!check) {
         this.e.reply(`请先更新抽卡记录或绑定ck/sk后再尝试查询UID:${uid}的抽卡记录！`)
         return false
       }
+      this.uid = uid
     }
 
     const pools = p || this.getPools(this.e.msg)
@@ -90,7 +91,7 @@ export default class Role extends Base {
       this.type = type
       this.typeName = typeName
       const { list, ids } = this.readJson(type)
-      const { data = [], err = '', frequently = false, list: List = '' } = await this.getAllLog(params.authkey, ids)
+      const { data = [], err = '', frequently = false, List = '' } = await this.getAllLog(params.authkey, ids)
 
       if (err) {
         msgs.push(err)
@@ -110,11 +111,11 @@ export default class Role extends Base {
       return false
     }
 
-    const user = await Data.readJSON(this.GachaUserPath, { root: true, def: { master: [], ban: [] } })
+    const user = await Data.readJSON(this.GachaUserPath(), { root: true, def: { master: [], ban: [] } })
     if (!user.master.some(item => item == this.e.user_id)) {
       user.master.push(String(this.e.user_id))
       _.pull(user.ban, String(this.e.user_id))
-      Data.writeJSON(this.GachaUserPath, user, { root: true })
+      Data.writeJSON(this.GachaUserPath(), user, { root: true })
     }
 
     const data = {}
@@ -212,10 +213,10 @@ export default class Role extends Base {
     }
 
     /** 获取到uid后重新查询本地记录 */
-    let list = ''
+    let List = ''
     if (!this.uid && ids.size === 0) {
       this.uid = res.data.list[0].uid;
-      ({ list, ids } = this.readJson(this.type))
+      ({ List, ids } = this.readJson(this.type))
     }
 
     let data = []
@@ -236,7 +237,7 @@ export default class Role extends Base {
     const ret = await this.getAllLog(authkey, ids, page, endId)
     data = data.concat(ret.data || [])
 
-    return { data, err: ret.err, list }
+    return { data, err: ret.err, List }
   }
 
   readJson (type) {
