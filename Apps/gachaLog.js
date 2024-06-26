@@ -1,4 +1,4 @@
-import { plugin } from '#Karin'
+import { plugin } from 'node-Karin'
 import GachaLog from '../model/gachaLog.js'
 import { MysUtil } from '#MysTool/mys'
 import { Data } from '#MysTool/utils'

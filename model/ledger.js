@@ -1,4 +1,4 @@
-import { common } from '#Karin'
+import { common } from 'node-Karin'
 import { MysApi, MysInfo, MysUtil } from '#MysTool/mys'
 import { Base, Data } from '#MysTool/utils'
 import _ from 'lodash'

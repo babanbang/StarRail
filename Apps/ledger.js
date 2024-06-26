@@ -1,4 +1,4 @@
-import { plugin } from '#Karin'
+import { plugin } from 'node-Karin'
 import { MysUtil } from '#MysTool/mys'
 import { Data } from '#MysTool/utils'
 import Ledger from '../model/ledger.js'

@@ -1,4 +1,4 @@
-import { plugin } from '#Karin'
+import { plugin } from 'node-Karin'
 import { MysUtil } from '#MysTool/mys'
 import Rogue from '../model/rogue.js'
 

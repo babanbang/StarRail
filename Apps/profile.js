@@ -1,4 +1,4 @@
-import { plugin } from '#Karin'
+import { plugin } from 'node-Karin'
 import Profile from '../model/profile.js'
 import { MysUtil } from '#MysTool/mys'
 
