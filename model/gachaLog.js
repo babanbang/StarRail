@@ -204,6 +204,7 @@ export default class Role extends Base {
 
     if (res?.retcode != 0) {
       if (res?.retcode == -110) return { frequently: true }
+      logger.error(`[UID:${this.uid}] 获取${this.typeName}记录失败`)
       return { err: `获取${this.typeName}记录失败` }
     }
 
@@ -215,8 +216,7 @@ export default class Role extends Base {
     /** 获取到uid后重新查询本地记录 */
     let List = ''
     if (!this.uid && ids.size === 0) {
-      this.uid = res.data.list[0].uid;
-      ({ List, ids } = this.readJson(this.type))
+      ({ List, ids } = this.readJson(this.type, res.data.list[0].uid))
     }
 
     let data = []
@@ -240,7 +240,9 @@ export default class Role extends Base {
     return { data, err: ret.err, List }
   }
 
-  readJson (type) {
+  readJson (type, uid = '') {
+    if (uid) this.uid = uid
+
     const ids = new Map()
     if (!this.uid) return { list: [], ids }
 
