@@ -22,8 +22,7 @@ export class sr_role extends plugin {
   /** 角色列表 */
   async roleList () {
     const img = await new Role(this.e).roleList()
-    if (!img) return
-
-    this.reply(img)
+    if (img) this.reply(img)
+    return true
   }
 }

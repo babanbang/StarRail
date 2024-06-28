@@ -34,32 +34,28 @@ export class sr_rogue extends plugin {
   /** 模拟宇宙 */
   async rogue () {
     const img = await new Rogue(this.e).rogue()
-    if (!img) return
-
-    this.reply(img)
+    if (img) this.reply(img)
+    return true
   }
 
   /** 差分宇宙 */
   async rogue_tourn () {
     const img = await new Rogue(this.e).rogue_tourn()
-    if (!img) return
-
-    this.reply(img)
+    if (img) this.reply(img)
+    return true
   }
 
   /** 黄金与机械 */
   async rogue_nous () {
     const img = await new Rogue(this.e).rogue_nous()
-    if (!img) return
-
-    this.reply(img)
+    if (img) this.reply(img)
+    return true
   }
 
   /** 寰宇蝗灾 */
   async rogue_locust () {
     const img = await new Rogue(this.e).rogue_locust()
-    if (!img) return
-
-    this.reply(img)
+    if (img) this.reply(img)
+    return true
   }
 }

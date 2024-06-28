@@ -22,8 +22,7 @@ export class sr_explore extends plugin {
   /** 探险 */
   async Explore () {
     const img = await new Explore(this.e).get()
-    if (!img) return
-
-    this.reply(img)
+    if (img) this.reply(img)
+    return true
   }
 }
