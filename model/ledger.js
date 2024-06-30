@@ -148,7 +148,7 @@ export default class Ledger extends Base {
     if (this.month === this.NowMonth) {
       day += `${moment().date()}日`
     }
-    const rolePath = this.Game() + 'resources/meta/character'
+    const rolePath = this.GamePath() + 'resources/meta/character'
     const roleList = Data.readdir(rolePath).filter((item) => {
       return item !== 'common' && Data.isDirectory(rolePath + '/' + item)
     })
