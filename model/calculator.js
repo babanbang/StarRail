@@ -21,7 +21,7 @@ export default class Calculator extends Base {
   mysInfo
 
   help () {
-    this.e.replyForward(common.makeForward(this.tips))
+    this.e.bot.sendForwardMessage(this.e.contact, common.makeForward(this.tips))
     return true
   }
 

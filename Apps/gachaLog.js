@@ -30,7 +30,7 @@ export const gachaLog_hander = karin.handler(
   'mys.sr.gachaLog',
   async ({ e, params }) => {
     const msg = await new GachaLog(e).upLog(params)
-    if (msg) e.replyForward(msg)
+    if (msg) e.bot.sendForwardMessage(e.contact, msg)
     return true
   },
   { priority: 200 }
