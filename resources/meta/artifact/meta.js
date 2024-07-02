@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import lodash from 'lodash'
 import { Format } from '#MysTool/profile'
 
 export const mainAttr = {
@@ -37,7 +37,7 @@ const attrMap = {
   effDef: { title: '效果抵抗', format: 'pct', value: 4.32, calc: 'pct' }
 }
 
-_.forEach(attrMap, (attr, key) => {
+lodash.forEach(attrMap, (attr, key) => {
   // 设置value
   if (!attr.value) {
     return true

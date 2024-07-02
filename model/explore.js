@@ -1,7 +1,7 @@
 import { Base, Cfg, Data } from '#MysTool/utils'
 import { MysInfo, MysUtil } from '#MysTool/mys'
 import { Player } from '#MysTool/profile'
-import _ from 'lodash'
+import lodash from 'lodash'
 
 const buff = Data.readJSON('/lib/components/StarRail/resources/imgs/challenge/buff.json')
 export default class Explore extends Base {
@@ -17,7 +17,7 @@ export default class Explore extends Base {
       ['challenge', { need_all: false, schedule_type: 1 }]
     ])
 
-    if (_.every(res, v => v?.retcode !== 0)) {
+    if (lodash.every(res, v => v?.retcode !== 0)) {
       return false
     }
     const [index, rogue, challenge] = res

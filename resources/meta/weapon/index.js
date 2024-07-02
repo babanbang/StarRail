@@ -1,6 +1,6 @@
 import { Meta } from '#MysTool/profile'
 import { Data } from '#MysTool/utils'
-import _ from 'lodash'
+import lodash from 'lodash'
 import { abbr, aliasCfg } from './alias.js'
 const Path = import.meta.url
 
@@ -17,7 +17,7 @@ const weaponBuffs = {}
 let loadBuffs = async function () {
   for (const type of types) {
     let calc = (await Data.importDefault(`${type}/calc.js`, { Path })).module
-    if (_.isFunction(calc)) {
+    if (lodash.isFunction(calc)) {
       calc = calc((idx, key) => {
         return {
           isStatic: true,
@@ -25,10 +25,10 @@ let loadBuffs = async function () {
           key
         }
       }, (title, key, idx) => {
-        if (_.isPlainObject(key)) {
+        if (lodash.isPlainObject(key)) {
           return (tables) => {
             const data = {}
-            _.forEach(key, (idx, k) => {
+            lodash.forEach(key, (idx, k) => {
               data[k] = tables[idx]
             })
             return {
@@ -45,7 +45,7 @@ let loadBuffs = async function () {
         }
       })
     }
-    _.forEach(calc, (ds, key) => {
+    lodash.forEach(calc, (ds, key) => {
       let id = meta.getId(key)
       if (id) weaponBuffs[id] = ds
     })

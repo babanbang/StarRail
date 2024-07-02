@@ -1,6 +1,6 @@
 import { Meta } from '#MysTool/profile'
 import { Data } from '#MysTool/utils'
-import _ from 'lodash'
+import lodash from 'lodash'
 import artiBuffs from './calc.js'
 import { mainAttr, subAttr, attrMap } from './meta.js'
 import { artiSetAbbr, aliasCfg, artiAbbr } from './alias.js'
@@ -12,7 +12,7 @@ const setMeta = Meta.create('sr', 'artiSet')
 const artiMeta = Meta.create('sr', 'arti')
 
 const idMap = {}
-_.forEach(Data.readJSON('data.json', { Path }), (setData) => {
+lodash.forEach(Data.readJSON('data.json', { Path }), (setData) => {
   const artiSet = {
     name: setData.name,
     effect: setData.skill,
@@ -20,7 +20,7 @@ _.forEach(Data.readJSON('data.json', { Path }), (setData) => {
   }
   setMeta.addDataItem(artiSet.name, artiSet)
 
-  _.forEach(setData.idxs, (ds, idx) => {
+  lodash.forEach(setData.idxs, (ds, idx) => {
     artiMeta.addDataItem(ds.name, {
       ...ds,
       set: setData.name,
@@ -28,7 +28,7 @@ _.forEach(Data.readJSON('data.json', { Path }), (setData) => {
       idx
     })
 
-    idMap[ds.name] = _.keys(ds.ids).join(',')
+    idMap[ds.name] = lodash.keys(ds.ids).join(',')
     artiSet.idxs[idx] = ds.name
   })
 })

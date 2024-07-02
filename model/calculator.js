@@ -1,7 +1,8 @@
 import { MysInfo } from '#MysTool/mys'
 import { Character, Material, Weapon } from '#MysTool/profile'
-import { Base, common, Data, PluginName } from '#MysTool/utils'
-import _ from 'lodash'
+import { Base, Data, PluginName } from '#MysTool/utils'
+import { common } from 'node-karin'
+import lodash from 'lodash'
 
 export default class Calculator extends Base {
   constructor (e) {
@@ -21,6 +22,7 @@ export default class Calculator extends Base {
 
   help () {
     this.e.replyForward(common.makeForward(this.tips))
+    return true
   }
 
   async character_count (calculator) {
@@ -67,7 +69,7 @@ export default class Calculator extends Base {
     const MaxSkill = '90,6,10,10,10,90'.split(',').map(Number)
     if (!role && set?.[0]) set = ['', '', '', '', '', set[0]]
 
-    if (_.isEmpty(set)) {
+    if (lodash.isEmpty(set)) {
       return { min: [-1, -1, -1, -1, -1, -1], max: MaxSkill }
     } else {
       const min = [...MaxSkill]
@@ -203,7 +205,7 @@ export default class Calculator extends Base {
       return tem
     })
 
-    const available = _.sortBy(data.available_material.map(val => {
+    const available = lodash.sortBy(data.available_material.map(val => {
       this.checkImg(val)
       return {
         name: val.name,
@@ -258,12 +260,12 @@ export default class Calculator extends Base {
           }
         })
 
-        avatar[key] = _.sortBy(avatar[key], ['level', '_num']).reverse()
+        avatar[key] = lodash.sortBy(avatar[key], ['level', '_num']).reverse()
       }
 
       if (item.skills_consume?.length > 0) {
         avatar.skills = {}
-        const talent = _.keyBy(Object.values(role.detail.talent), 'id')
+        const talent = lodash.keyBy(Object.values(role.detail.talent), 'id')
 
         item.skills_consume.forEach((val, i) => {
           const info = {
@@ -280,7 +282,7 @@ export default class Calculator extends Base {
               num: formart(v.num)
             })
           })
-          avatar.skills[info.id] = { info, list: _.sortBy(list, ['level', '_num']).reverse() }
+          avatar.skills[info.id] = { info, list: lodash.sortBy(list, ['level', '_num']).reverse() }
         })
       }
       avatar.calendar = this.calendar(item.calendar)

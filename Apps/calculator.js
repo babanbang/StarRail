@@ -1,34 +1,19 @@
-import { plugin } from '#Karin'
+import karin from 'node-karin'
 import Calculator from '../model/calculator.js'
+import '../index.js'
 
-export class sr_calculator extends plugin {
-  constructor () {
-    super({
-      name: '原神养成计算',
-      dsc: '角色养成材料计算器',
-      event: 'message',
-      priority: 200,
-      handler: [
-        {
-          key: 'mys.sr.calculator.help',
-          fnc: 'help'
-        },
-        {
-          key: 'mys.sr.calculator',
-          fnc: 'count'
-        }
-      ]
-    })
-  }
+export const calculator_help = karin.handler(
+  'mys.sr.calculator.help',
+  (e) => new Calculator(e).help(),
+  { name: '星铁养成计算帮助', priority: 200 }
+)
 
-  help () {
-    return new Calculator(this.e).help()
-  }
-
-  /** 养成计算 */
-  async count ({ calculator }) {
-    const img = await new Calculator(this.e).character_count(calculator)
-    if (img) this.reply(img)
+export const calculator = karin.handler(
+  'mys.sr.calculator',
+  async ({ e, calculator }) => {
+    const img = await new Calculator(e).character_count(calculator)
+    if (img) e.reply(img)
     return true
-  }
-}
+  },
+  { name: '星铁养成计算', priority: 200 }
+)

@@ -1,7 +1,7 @@
 import { Base, Cfg } from '#MysTool/utils'
 import { MysInfo } from '#MysTool/mys'
 import { Player } from '#MysTool/profile'
-import _ from 'lodash'
+import lodash from 'lodash'
 
 export default class Role extends Base {
   constructor (e) {
@@ -17,7 +17,7 @@ export default class Role extends Base {
     const player = new Player(this.e.MysUid, this.game)
     if (!player.name || !player.level) {
       const ret = await MysInfo.get(this.e, [['index'], ['rogue']])
-      if (!_.every(ret, v => v?.retcode !== 0)) {
+      if (!lodash.every(ret, v => v?.retcode !== 0)) {
         const [index, rogue] = ret
         player.setBasicData({
           ...rogue.data.role,
@@ -30,7 +30,7 @@ export default class Role extends Base {
     player.save()
 
     return await this.renderImg({
-      avatars: _.sortBy(player.getAvatarData(), ['level', 'star', 'cons', 'weapon.star', 'id']).reverse(),
+      avatars: lodash.sortBy(player.getAvatarData(), ['level', 'star', 'cons', 'weapon.star', 'id']).reverse(),
       role: {
         name: player.name,
         level: player.level,

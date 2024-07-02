@@ -1,7 +1,6 @@
 import { Base, Cfg } from '#MysTool/utils'
 import { MysInfo } from '#MysTool/mys'
 import { Character, Player } from '#MysTool/profile'
-import _ from 'lodash'
 
 export default class Rogue extends Base {
   constructor (e) {

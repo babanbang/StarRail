@@ -1,7 +1,7 @@
-import { common } from '#Karin'
+import { common } from 'node-karin'
 import { MysApi, MysInfo, MysUtil } from '#MysTool/mys'
 import { Base, Data } from '#MysTool/utils'
-import _ from 'lodash'
+import lodash from 'lodash'
 import moment from 'moment'
 
 const reg = MysUtil.reg.sr
@@ -120,13 +120,13 @@ export default class Ledger extends Base {
     ledgerInfo.month_data.gacha = (ledgerInfo.month_data.current_hcoin / 160).toFixed(0)
     ledgerInfo.month_data.last_gacha = (ledgerInfo.month_data.last_hcoin / 160).toFixed(0)
 
-    _.forEach(['current_hcoin', 'last_hcoin', 'current_rails_pass', 'last_rails_pass'], key => {
+    lodash.forEach(['current_hcoin', 'last_hcoin', 'current_rails_pass', 'last_rails_pass'], key => {
       if (ledgerInfo.month_data[key] > 10000) {
         ledgerInfo.month_data[key] = (ledgerInfo.month_data[key] / 10000).toFixed(2) + ' w'
       }
     })
 
-    _.forEach(['current_hcoin', 'current_rails_pass'], key => {
+    lodash.forEach(['current_hcoin', 'current_rails_pass'], key => {
       if (ledgerInfo.day_data[key] > 10000) {
         ledgerInfo.day_data[key] = (ledgerInfo.day_data[key] / 10000).toFixed(1) + ' w'
       }
@@ -155,7 +155,7 @@ export default class Ledger extends Base {
 
     return {
       day,
-      icon: 'meta/character/' + _.sample(roleList) + '/imgs/face.png',
+      icon: 'meta/character/' + lodash.sample(roleList) + '/imgs/face.png',
       srday: `星期${week[moment().day()]}`,
       nowDay: moment(new Date()).format('YYYY年MM月DD日'),
       ...ledgerInfo
