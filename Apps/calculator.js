@@ -4,7 +4,7 @@ import '../index.js'
 
 export const calculator_help = karin.handler(
   'mys.sr.calculator.help',
-  (e) => new Calculator(e).help(),
+  ({ e }) => new Calculator(e).help(),
   { name: '星铁养成计算帮助', priority: 200 }
 )
 
