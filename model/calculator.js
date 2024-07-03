@@ -138,7 +138,7 @@ export default class Calculator extends Base {
       }
     }
 
-    if (this.mysApi.hoyolab) {
+    if (this.mysInfo.mysApi.hoyolab) {
       body.lang = 'zh-cn'
     }
 

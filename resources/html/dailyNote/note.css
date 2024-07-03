@@ -1,0 +1,363 @@
+@font-face {
+  font-family: "HYWenHei-55W";
+  src: url("../../../../../../resources/fonts/HYWenHei-55W.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+
+body {
+  font-size: 14px;
+  font-family: "HYWenHei-55W", serif;
+  width: 800px;
+  height: 380px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(4);
+  transform: scale(4);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0
+}
+
+.container {
+  width: 800px;
+  height: 380px;
+  background-color: #262626;
+  background-size: 800px 786px;
+  background-repeat: no-repeat;
+  border-radius: 20px
+}
+
+.logo {
+  position: absolute;
+  height: 90px;
+  width: 90px;
+  left: 20px;
+  top: 1px
+}
+
+.logos {
+  position: absolute;
+  width: 100px;
+  right: 20px;
+  top: 5px
+}
+
+.header h1 {
+  position: absolute;
+  letter-spacing: 0.12em;
+  left: 120px;
+  top: 27px;
+  font-size: 25px;
+  color: #CCFF99;
+}
+
+/* .header h1 span{
+  font-size:15px
+} */
+
+.header p {
+  position: absolute;
+  right: 120px;
+  top: 40px;
+  font-size: 18px;
+  color: #dea32c
+}
+
+.header .date {
+  position: absolute;
+  right: 120px;
+  top: 20px;
+  font-size: 13px;
+  color: #F56C6C;
+}
+
+.resin {
+  position: absolute;
+  border-radius: 20px;
+  background-color: #323232;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 290px;
+  height: 283px;
+  padding: 20px;
+  left: 20px;
+  top: 73px
+}
+
+.resin img {
+  position: absolute;
+  width: 100px;
+  height: 100px
+}
+
+.resin p {
+  position: absolute;
+  font-size: 25px;
+  /* color:#717782; */
+  left: 125px;
+  top: 30px
+}
+
+.resin .num {
+  position: absolute;
+  font-size: 25px;
+  left: 125px;
+  top: 65px
+}
+
+.resin .num strong {
+  font-size: 45px
+}
+
+.resin .status {
+  position: absolute;
+  padding: 5px;
+  background-color: #474747;
+  border-radius: 30px;
+  width: 250px;
+  height: 135px;
+  /*left: 30px;*/
+  top: 135px
+}
+
+.resin .status .status-title {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 10px;
+  text-align: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  margin-top: 10px;
+}
+
+.resin .status .status-date {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  text-align: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  color: #F39000;
+}
+
+.resin .status .status-reserve {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  color: #EEE5D7;
+}
+
+
+.resin .status .time {
+  display: inline-block;
+  padding: 10px 10px;
+  line-height: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 10px;
+  text-align: center;
+  border-radius: 30px;
+  background: #a9834f;
+  color: #EEE5D7;
+}
+
+.resin .status .status-whole {
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  color: #F56C6C;
+  margin-top: 36px;
+}
+
+.resin .time-2 {
+  position: relative;
+  font-size: 28px;
+  color: #71B755;
+  text-align: center;
+  top: 40px
+}
+
+.list {
+  border-radius: 20px;
+  position: absolute;
+  background-color: #323232;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 447px;
+  height: 283px;
+  left: 331px;
+  top: 73px;
+  padding: 10px 20px 0px;
+  font-size: 25px
+}
+
+.item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin-bottom: 0;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  /*justify-content: center;*/
+}
+
+.item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.item p {
+  font-size: 18px;
+  position: absolute;
+  left: 70px;
+  top: 130px
+}
+
+.img-line {
+  position: relative;
+  background-image: url('./images/line.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 5px 0;
+  width: 407px;
+  height: 10px
+}
+
+.item .title {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.item .title span {
+  position: absolute;
+  z-index: 2;
+  right: 10px;
+  top: 10px;
+  font-weight: normal;
+}
+
+.role {
+  position: relative;
+  background-color: #474747;
+  width: 90%;
+  height: 60px;
+  border-radius: 30px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.role .avatar-all {
+  width: -webkit-calc(100% - 60px);
+  width: calc(100% - 60px);
+  margin: 0 auto;
+  height: 60px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.role .avatar {
+  /*flex: 1;*/
+  width: 80px;
+  height: 60px;
+  border-radius: 50%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 5px;
+  position: relative;
+}
+
+.role .avatar .icon {
+  height: 65%;
+  border-radius: 50%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #FFFFFF;
+}
+
+/**
+获取第一个
+ */
+.role .avatar .icon:first-child {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+
+}
+
+.role .avatar .complete:first-child {
+  border-radius: 50%;
+  border: 2px solid #F39000;
+  /*top: 8px !important;*/
+  /*left: 2px !important;*/
+}
+
+/**
+获取第二个
+ */
+.role .avatar .icon:nth-child(2) {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}
+
+.role .avatar .complete:nth-child(2) {
+  border-radius: 50%;
+  border: 2px solid #F39000;
+  /*top: 8px !important;*/
+  /*right: 2px  !important;*/
+}

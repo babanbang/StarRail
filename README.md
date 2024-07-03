@@ -21,3 +21,15 @@ git clone --depth=1 https://github.com/babanbang/StarRail.git ./lib/components/S
 ```bash
 git clone --depth=1 https://gitee.com/bbaban/StarRail.git ./lib/components/StarRail
 ```
+---
+
+#### 已完成功能
+
+- [x] 前瞻兑换码
+- [x] 探索查询
+- [x] 角色列表查询
+- [x] 模拟宇宙、寰宇蝗灾、黄金与机械、差分宇宙查询
+- [x] 体力查询
+- [x] 开拓月历查询
+- [x] 角色面板更新、查询
+- [x] 祈愿记录更新、查询、导出(支持使用链接更新)

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <link rel="shortcut icon" href="#"/>
+    <title>开拓力</title>
+    <link rel="preload" href="{{fontsPath}}tttgbnumber.ttf" as="font">
+    <link rel="stylesheet" type="text/css" href="{{pluResPath}}html/dailyNote/note.css"/>
+
+</head>
+<body>
+<div class="container" id="container">
+    <div class="header">
+        <img class="logo" src="{{pluResPath}}html/dailyNote/images/星铁.png">
+        <img class="logos" src="{{pluResPath}}html/dailyNote/images/米游社.png">
+        <h1>UID: {{uid}}</h1>
+        <p class="date">{{dayMb2}}</p>
+        <p style="color: {{if has_signed!=1}}#DE4848{{/if}}">
+            今日签到福利{{if has_signed==1}}已{{else}}尚未{{/if}}领取
+        </p>
+    </div>
+    <div class="resin">
+        <img class="icon icon-开拓力" src="{{pluResPath}}html/dailyNote/images/开拓力.png">
+        <p style="color:#fff;">开拓力</p>
+        <div class="num" style="color:#fff"><strong style="color: {{if resinMaxTime}}#F39000{{else}}#71B755{{/if}};">{{current_stamina}}</strong>/{{max_stamina}}
+        </div>
+        <div class="status">
+            {{if resinMaxTime2}}
+            <div class="status-title">预计恢复时间</div>
+            <div class="status-date">
+                {{resinMaxTimeMb2Day}}<span class="time"> {{resinMaxTimeMb2}}</span>
+            </div>
+            {{else}}
+            <div class="status-whole">已全部恢复</div>
+            {{/if}}
+            <div class="status-reserve">
+                后备开拓力：{{current_reserve_stamina}}
+            </div>
+        </div>
+    </div>
+    <div class="list">
+        <div class="item">
+            <img class="icon icon-实训" src="{{pluResPath}}html/dailyNote/images/每日实训.png">
+            <div class="title">每日实训<span {{if current_train_score !=max_train_score}} style="color: #ef4136" {{/if}}>{{current_train_score}}
+                <span1 style="font-size:16px">/{{max_train_score}}</span1>
+                </span></div>
+        </div>
+        <div class="img-line"></div>
+        <div class="item">
+            <img class="icon icon-宇宙" src="{{pluResPath}}html/dailyNote/images/模拟宇宙.png">
+            <div class="title">模拟宇宙<span>{{current_rogue_score}}<span1
+                    style="font-size:16px"> /{{max_rogue_score}}</span1></div>
+        </div>
+        <div class="img-line"></div>
+        <div class="item">
+            <img class="icon 委托执行" src="{{pluResPath}}html/dailyNote/images/委托执行.png">
+            <div class="title">委托执行
+                <span {{if accepted_expedition_num ==0}} style="color: #DE4848" {{/if}}>{{accepted_expedition_num}}
+                <span1 style="font-size:16px"> /{{total_expedition_num}}</span1>
+                </span></div>
+        </div>
+
+        <div class="role">
+            <div class="avatar-all">
+                {{if expeditions.length < 1}}<p>尚未进行委托执行</p>{{/if}}
+                {{each expeditions val}}
+                <div class="avatar">
+                    {{each val.avatars avatar }}
+                    <img class="icon {{if val.status === 'Finished'}} complete {{/if}}" src="{{avatar}}" height="100%" >
+                    {{/each}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
