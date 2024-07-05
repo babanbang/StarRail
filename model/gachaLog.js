@@ -482,6 +482,7 @@ export default class Role extends Base {
           return { type: 11, typeName: "角色" }
         case "常驻":
           return { type: 1, typeName: "常驻" }
+        case "光锥":
         case "武器":
           return { type: 12, typeName: "光锥" }
         case "新手":

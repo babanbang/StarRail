@@ -55,7 +55,7 @@ export default class DailyNote extends Base {
       if (mys.sk && !mysInfo.hoyolab) {
         const noteData = await this.getWidgetData(mysInfo)
         if (noteData?.retcode == 0) {
-          ImgList.push(await this.renderImg({ uid, ...this.dealData(noteData.data, true) }))
+          ImgList.push(await this.renderImg({ uid, ...this.dealData(noteData.data) }))
           continue
         }
       }
@@ -134,7 +134,7 @@ export default class DailyNote extends Base {
     return res?.retcode == 0
   }
 
-  dealData (data, widget = false) {
+  dealData (data) {
     const ImgData = {}
 
     /** 开拓力 */
