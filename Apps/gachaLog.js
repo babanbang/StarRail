@@ -4,7 +4,7 @@ import { MysUtil } from '#MysTool/mys'
 
 const reg = MysUtil.reg.sr
 export const GachaLog_getLog = karin.command(
-  new RegExp(`^${reg}?(抽卡|抽奖|角色|武器|常驻|up|新手|全部|光锥)+池*(记录|祈愿|分析)$`, 'i'),
+  new RegExp(`^${reg}(抽卡|抽奖|角色|武器|常驻|up|新手|全部|光锥)+池*(记录|祈愿|分析)$`, 'i'),
   async (e) => {
     const img = await new GachaLog(e).getLog()
     if (img) e.reply(img)
@@ -14,7 +14,7 @@ export const GachaLog_getLog = karin.command(
 )
 
 export const GachaLog_exportLog = karin.command(
-  new RegExp(`^${reg}?(强制)?导出抽卡(记录|祈愿|分析)$`, 'i'),
+  new RegExp(`^${reg}(强制)?导出抽卡(记录|祈愿|分析)$`, 'i'),
   async (e) => {
     if (e.isGroup && !e.msg.includes("强制")) {
       e.reply("建议私聊导出，若你确认要在此导出，请发送【#sr强制导出抽卡记录】", { at: true })
