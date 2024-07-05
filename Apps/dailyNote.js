@@ -5,7 +5,7 @@ import DailyNote from '../model/dailyNote.js'
 const reg = MysUtil.reg.sr
 
 export const dailyNote = karin.command(
-  new RegExp(`^${reg}?(查询)?(体力|开拓力)$`, 'i'),
+  new RegExp(`^${reg}(查询)?(体力|开拓力)$`, 'i'),
   async (e) => await new DailyNote(e).get(),
   { name: '星铁开拓力查询', priority: 200 }
 )
