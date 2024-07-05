@@ -150,7 +150,7 @@ export default class Rogue extends Base {
       for (const key of ['cached_avatars', 'final_lineup']) {
         if (!record[key]) continue
         record[key] = record[key].map(item => {
-          const char = Character.get(item.id)
+          const char = Character.get(item.id, this.game)
           if (char) {
             return {
               ...item,
