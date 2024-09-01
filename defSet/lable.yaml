@@ -1,13 +1,13 @@
 # 版本
-version: 2.3
+version: 2.4
 # 角色数
 avatar: 51
 # 成就
-achievement: 845
+achievement: 880
 # 战利品
-chest: 787
+chest: 824
 # 梦境护照贴纸
-dream_paster: 230
+dream_paster: 243
 
 # 模拟宇宙技能树激活
 unlocked_skill: 42
